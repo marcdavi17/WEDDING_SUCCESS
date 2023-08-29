@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last_name: MyString
+  first_name: MyString
+  gender: MyString
+  age_category: 1
+  witness: false
+  status: 1
+  family: one
+  spouse: one
+
+two:
+  last_name: MyString
+  first_name: MyString
+  gender: MyString
+  age_category: 1
+  witness: false
+  status: 1
+  family: two
+  spouse: two
