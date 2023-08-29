@@ -1,3 +1,3 @@
 class Wedding < ApplicationRecord
-  has_many :guests
+  has_many: :wedding_accesses, :desks, :spouses
 end
