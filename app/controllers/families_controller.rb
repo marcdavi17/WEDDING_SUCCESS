@@ -10,13 +10,17 @@ class FamiliesController < ApplicationController
 
   def create
     @family = Family.new(family_params)
-    @family.save # Will raise ActiveModel::ForbiddenAttributesError
-    redirect_to action: "index"
+    # debugger
+    if @family.save # Will raise ActiveModel::ForbiddenAttributesError
+      redirect_to action: "index"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
   def family_params
-    params.require(:family).permit(:name, :email)
+    params.require(:family).permit(abyme_attributes, :name, :email)
   end
 end

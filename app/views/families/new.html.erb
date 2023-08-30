@@ -1,6 +1,7 @@
 <h1>New Family</h1>
 <%= simple_form_for(@family) do |f| %>
   <%= f.input :name %>
+  <%= f.abyme_for :guests %>
   <%= f.input :email %>
   <%= f.submit %>
 <% end %>
