@@ -12,9 +12,10 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <div data-controller="hello"></div>
-    <%= yield %>
+    <div class="main-layout-container">
+      <%= render "shared/navbar" %>
+      <%= yield %>
+    </div>
   </body>
 </html>
