@@ -1,3 +1,3 @@
 class Family < ApplicationRecord
-  has_many: guests 
+  has_many :guests
 end
