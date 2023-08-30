@@ -1,0 +1,11 @@
+<div class="form-container">
+  <%= simple_form_for @desk do |f| %>
+  <%= @desk.errors.full_messages.to_sentence %>
+    <div class="form-inputs">
+      <%= f.text_field :name %>
+      <%= f.number_field :capacity %>
+      <%= f.text_field :shape %>
+      <%= f.submit "Create Desk" %>
+    </div>
+  <% end %>
+</div>

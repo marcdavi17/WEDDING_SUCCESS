@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   resources :families
 
   get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
-  # get "guests", to: "guests#index"
-  # get "guest/new", to: "guest#new"
-  # get "families", to: "families#index"
+
+  resources :desks
+  # get "desks/new", to: "desks#new"
+  get "guests", to: "guests#index"
+  get "families", to: "families#index"
+  get "guest/new", to: "guest#new"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
