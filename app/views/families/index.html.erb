@@ -1,0 +1,12 @@
+<h1>Index Families</h1>
+
+<ul>
+  <% @families.each do |family| %>
+    <li><%= family.name %></li>
+    <ul>
+      <% family.guests.each do |guest| %>
+        <li><%= guest.first_name %> <%= guest.last_name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</ul>
