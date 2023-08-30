@@ -9,6 +9,7 @@ class DesksController < ApplicationController
 
   def create
     @desk = Desk.new(desk_params)
+    @desk.wedding = current_user.weddings.last
     if @desk.save
       redirect_to action: "index"
     else
