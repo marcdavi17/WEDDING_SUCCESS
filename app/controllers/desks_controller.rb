@@ -10,7 +10,7 @@ class DesksController < ApplicationController
   def create
     @desk = Desk.new(desk_params)
     if @desk.save
-      redirect_to desks_path
+      redirect_to action: "index"
     else
       render :new
     end
