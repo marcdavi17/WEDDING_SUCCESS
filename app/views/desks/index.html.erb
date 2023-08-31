@@ -1,6 +1,21 @@
-<h1>List of Desks</h1>
-<ul>
+
+
+<div class="container">
+  <h1>All my tables</h1>
+
   <% @desks.each do |desk| %>
-    <li><%= link_to desk.name, desk_path(desk) %></li>
+    <div class="card m-3">
+      <div class="card-header">
+        Seats capacity : <%= desk.capacity %> persons
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= desk.name %></h5>
+        <p class="card-text"><%= desk.shape %></p>
+        <button type="button" class="btn btn-light"><%= link_to "Edit table", edit_desk_path(desk) %></button>
+      </div>
+    </div>
   <% end %>
-</ul>
+
+<button type="button" class="btn btn-info"><%= link_to "Ajouter une table", new_desk_path %></button>
+
+</div>

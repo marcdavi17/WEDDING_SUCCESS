@@ -1,5 +1,18 @@
-<div class="desk-details">
-  <h2><%= @desk.name %></h2>
-  <p>Capacity: <%= @desk.capacity %></p>
-  <p>Shape: <%= @desk.shape %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Desk Details
+        </div>
+        <div class="card-body">
+          <h2 class="card-title"><%= @desk.name %></h2>
+          <div class="details">
+            <p class="card-text"><strong>Capacity:</strong> <%= @desk.capacity %></p>
+            <p class="card-text"><strong>Shape:</strong> <%= @desk.shape %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

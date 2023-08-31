@@ -1,12 +1,25 @@
-<h1>Index Families</h1>
 
-<ul>
+<div class="container">
+  <h1>Tous mes invités par famille</h1>
+
   <% @families.each do |family| %>
-    <li><%= family.name %></li>
-    <ul>
-      <% family.guests.each do |guest| %>
-        <li><%= guest.first_name %> <%= guest.last_name %></li>
-      <% end %>
-    </ul>
+    <div class="card m-3">
+      <div class="card-header">
+        <%= family.guests.count %> personnes
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= family.name %></h5>
+        <p class="card-text">Listes des invités :</p>
+          <ul>
+            <% family.guests.each do |guest| %>
+              <li><%= guest.first_name %> <%= guest.last_name %></li>
+            <% end %>
+          </ul>
+        <button type="button" class="btn btn-light"><%= link_to "Mettre à jour", edit_family_path(family) %></button>
+      </div>
+    </div>
   <% end %>
-</ul>
+
+<button type="button" class="btn btn-info"><%= link_to "Ajouter une famille", new_family_path %></button>
+
+</div>
