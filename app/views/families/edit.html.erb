@@ -6,7 +6,7 @@
           <h1>Modify Family</h1>
         </div>
         <div class="card-body">
-          <%= simple_form_for(@family) do |f| %>
+          <%= simple_form_for([@wedding, @family]) do |f| %>
             <div class="mb-3">
               <%= f.input :name, class: "form-control" %>
             </div>

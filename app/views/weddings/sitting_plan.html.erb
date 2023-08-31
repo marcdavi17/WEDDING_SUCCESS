@@ -1,0 +1,7 @@
+<h1>My sitting plan</h1>
+<h3>Pending Guests</h3>
+<ul class="pending-guests">
+  <% @pending_guests.each do |pending_guest| %>
+    <li><%= pending_guest.first_name %> <%= pending_guest.last_name %></li>
+  <% end %>
+</ul>

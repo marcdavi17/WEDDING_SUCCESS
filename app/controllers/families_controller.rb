@@ -1,10 +1,12 @@
 class FamiliesController < ApplicationController
 
   def index
-    @families = Family.all
+    @wedding = Wedding.find(params[:wedding_id])
+    @families = @wedding.families.uniq
   end
 
   def new
+    @wedding = Wedding.find(params[:wedding_id])
     @family = Family.new # Needed to instantiate the form_with
   end
 
@@ -19,6 +21,7 @@ class FamiliesController < ApplicationController
   end
 
   def edit
+    @wedding = Wedding.find(params[:wedding_id])
     @family = Family.find(params[:id])
   end
 

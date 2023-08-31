@@ -62,6 +62,8 @@ guest3 = Guest.new({first_name: "Marie", last_name: "LEGRAND", gender: "female",
 guest3.save!
 guest4 = Guest.new({first_name: "Julien", last_name: "LEGRAND", gender: "male", age_category: 30, witness: false, status: 1, family: family2, spouse: spouse2})
 guest4.save!
+guest5 = Guest.new({first_name: "Thomas", last_name: "TOUSEUL", gender: "male", age_category: 30, witness: false, status: 1, family: family1, spouse: spouse2})
+guest5.save!
 puts "Guests created!"
 
 puts "Creating guest desks..."

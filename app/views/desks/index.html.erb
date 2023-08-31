@@ -1,16 +1,36 @@
 
-
 <div class="container">
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" <%= link_to "All tables", desks_path %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" <%= link_to "Seating tables", guest_desks_affect_wedding_path %></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
   <h1>All my tables</h1>
 
   <% @desks.each do |desk| %>
     <div class="card m-3">
       <div class="card-header">
-        Seats capacity : <%= desk.capacity %> persons
+        <%= desk.name %>
       </div>
       <div class="card-body">
-        <h5 class="card-title"><%= desk.name %></h5>
-        <p class="card-text"><%= desk.shape %></p>
+        <h5 class="card-title">Capacity: <%= desk.capacity %> seats (<%= desk.shape %>)</h5>
+        <p class="card-text">Guest list of this table:</p>
+          <ul>
+            <% desk.guest_desks.each do |guest_desk| %>
+              <li><%= guest_desk.guest.first_name %> <%= guest_desk.guest.last_name %></li>
+            <% end %>
+          </ul>
         <button type="button" class="btn btn-light"><%= link_to "Edit table", edit_desk_path(desk) %></button>
       </div>
     </div>
