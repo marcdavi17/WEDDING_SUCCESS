@@ -18,6 +18,19 @@ class FamiliesController < ApplicationController
     end
   end
 
+  def edit
+    @family = Family.find(params[:id])
+  end
+
+  def update
+    @family = Family.find(params[:id])
+    if @family.update(family_params)
+      redirect_to action: "index", notice: 'Family was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def family_params
