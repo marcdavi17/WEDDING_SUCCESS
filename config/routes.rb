@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#dashboard"
+  root to: "pages#home"
 
   resources :guests
   resources :families
