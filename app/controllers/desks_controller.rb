@@ -21,6 +21,19 @@ class DesksController < ApplicationController
     @desk = Desk.find(params[:id])
   end
 
+  def edit
+    @desk = Desk.find(params[:id])
+  end
+
+  def update
+    @desk = Desk.find(params[:id])
+    if @desk.update(desk_params)
+      redirect_to action: "index", notice: 'Table was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def desk_params

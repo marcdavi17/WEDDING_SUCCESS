@@ -15,9 +15,11 @@
               <li><%= guest.first_name %> <%= guest.last_name %></li>
             <% end %>
           </ul>
-        <a href="#" class="btn btn-primary">Mettre à jour</a>
+        <button type="button" class="btn btn-light"><%= link_to "Mettre à jour", edit_family_path(family) %></button>
       </div>
     </div>
   <% end %>
+
+<button type="button" class="btn btn-info"><%= link_to "Ajouter une famille", new_family_path %></button>
 
 </div>

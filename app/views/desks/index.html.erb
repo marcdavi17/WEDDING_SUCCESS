@@ -1,20 +1,21 @@
+
+
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h1>List of Desks</h1>
-        </div>
-        <div class="card-body">
-          <ul class="list-group">
-            <% @desks.each do |desk| %>
-              <li class="list-group-item">
-                <%= link_to desk.name, desk_path(desk) %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+  <h1>All my tables</h1>
+
+  <% @desks.each do |desk| %>
+    <div class="card m-3">
+      <div class="card-header">
+        Seats capacity : <%= desk.capacity %> persons
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= desk.name %></h5>
+        <p class="card-text"><%= desk.shape %></p>
+        <button type="button" class="btn btn-light"><%= link_to "Edit table", edit_desk_path(desk) %></button>
       </div>
     </div>
-  </div>
+  <% end %>
+
+<button type="button" class="btn btn-info"><%= link_to "Ajouter une table", new_desk_path %></button>
+
 </div>
