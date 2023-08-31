@@ -15,11 +15,11 @@
               <li><%= guest.first_name %> <%= guest.last_name %></li>
             <% end %>
           </ul>
-        <button type="button" class="btn btn-light"><%= link_to "Mettre à jour", edit_family_path(family) %></button>
+        <button type="button" class="btn btn-light"><%= link_to "Mettre à jour", edit_wedding_family_path(@wedding, family) %></button>
       </div>
     </div>
   <% end %>
 
-<button type="button" class="btn btn-info"><%= link_to "Ajouter une famille", new_family_path %></button>
+<button type="button" class="btn btn-info"><%= link_to "Ajouter une famille", new_wedding_family_path(@wedding) %></button>
 
 </div>

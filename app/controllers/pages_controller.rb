@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @wedding = current_user.weddings.last
   end
 end
