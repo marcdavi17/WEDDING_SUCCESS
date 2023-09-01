@@ -1,25 +1,25 @@
 
 <div class="container">
-  <h1>Tous mes invités par famille</h1>
+  <h1>All guests by families</h1>
 
   <% @families.each do |family| %>
     <div class="card m-3">
       <div class="card-header">
-        <%= family.guests.count %> personnes
+        <%= family.guests.count %> persons
       </div>
       <div class="card-body">
         <h5 class="card-title"><%= family.name %></h5>
-        <p class="card-text">Listes des invités :</p>
+        <p class="card-text">Guest list:</p>
           <ul>
             <% family.guests.each do |guest| %>
               <li><%= guest.first_name %> <%= guest.last_name %></li>
             <% end %>
           </ul>
-        <button type="button" class="btn btn-light"><%= link_to "Mettre à jour", edit_wedding_family_path(@wedding, family) %></button>
+        <button type="button" class="btn btn-1"><%= link_to "Update family", edit_wedding_family_path(@wedding, family) %></button>
       </div>
     </div>
   <% end %>
 
-<button type="button" class="btn btn-info"><%= link_to "Ajouter une famille", new_wedding_family_path(@wedding) %></button>
+<button type="button" class="btn btn-info"><%= link_to "Add a family", new_wedding_family_path(@wedding) %></button>
 
 </div>

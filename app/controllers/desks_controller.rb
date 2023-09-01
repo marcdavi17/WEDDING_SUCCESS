@@ -5,6 +5,7 @@ class DesksController < ApplicationController
   end
 
   def new
+    @wedding = Wedding.find(params[:id])
     @desk = Desk.new
   end
 
@@ -23,6 +24,7 @@ class DesksController < ApplicationController
   end
 
   def edit
+    @wedding = Wedding.find(params[:wedding_id])
     @desk = Desk.find(params[:id])
   end
 

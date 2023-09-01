@@ -8,6 +8,7 @@ class FamiliesController < ApplicationController
   def new
     @wedding = Wedding.find(params[:wedding_id])
     @family = Family.new # Needed to instantiate the form_with
+    @spouses = @wedding.spouses
   end
 
   def create
