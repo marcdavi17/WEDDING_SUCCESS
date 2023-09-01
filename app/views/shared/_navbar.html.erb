@@ -2,43 +2,39 @@
     <%= link_to root_path, class: "items-centerauto text-decoration-none" do %>
       <%= image_tag "logo.png", id: "sidebar-logo" %>
     <% end %>
-    <hr>
-          <%# <div class="d-flex">Hello Lenny!</div> %>
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
         <%= link_to dashboard_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "dashboard"}" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-            Dashboard
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-bars me-3"></i>
+            <p>Dashboard</p>
+          </div>
         <% end %>
       </li>
       <li>
-        <%= link_to wedding_families_path(@wedding), class: "nav-link #{"active" if controller_name == "guests" && action_name == "index"}" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-          Guests
+        <%= link_to  wedding_families_path(@wedding), class: "nav-link #{"active" if controller_name == "families" && action_name == "index"}" do %>
+
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-users me-3"></i>
+            <p>Guests</p>
+          </div>
         <% end %>
       </li>
       <li>
-        <%= link_to wedding_desks_path(@wedding), class: "nav-link" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Tables
+        <%= link_to "#", class: "nav-link" do %>
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-chair me-3"></i>
+            <p>Seating Plan</p>
+          </div>
         <% end %>
-      </li>
-      <li>
       </li>
     </ul>
-    <hr>
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= image_tag "user.png", class: "rounded-circle me-2", width: "24px", height: "24px" %>
-        <strong>Lenny</strong>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
+    <div class="d-flex align-items-center justify-content-center">
+      <%= image_tag "profile.jpg", class: "rounded-circle me-2", width: "32px", height: "32px" %>
+      <p><%= current_user.email %></p>
+      <%= link_to "logout", destroy_user_session_path, data: { turbo_method: :delete }  %>
     </div>
+
+
   </div>
 </nav>
