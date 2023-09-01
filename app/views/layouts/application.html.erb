@@ -19,7 +19,7 @@
        <%= yield %>
     <% else %>
       <div class="main-layout-container">
-        <%= render "shared/navbar" %>
+        <%= render "shared/navbar" unless devise_controller? %>
         <%= yield %>
       </div>
 
