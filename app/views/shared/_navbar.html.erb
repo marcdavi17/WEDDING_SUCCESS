@@ -12,7 +12,6 @@
         <% end %>
       </li>
       <li>
-<<<<<<< HEAD
         <%#= link_to  wedding_families_path(@wedding), class: "nav-link #{"active" if controller_name == "families" && action_name == "index"}" do %>
 
           <div class="d-flex align-items-center justify-content-center">
@@ -27,21 +26,9 @@
             <i class="fa-solid fa-chair me-3"></i>
             <p>Seating Plan</p>
           </div>
-=======
-        <%= link_to wedding_families_path(@wedding), class: "nav-link #{"active" if controller_name == "guests" && action_name == "index"}" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-          Guests
-        <% end %>
-      </li>
-      <li>
-        <%= link_to wedding_desks_path(@wedding), class: "nav-link" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          Tables
->>>>>>> a1d585b36e286f9b6109a2ef4132c6ab84cc081d
         <% end %>
       </li>
     </ul>
-<<<<<<< HEAD
 <div class="d-flex align-items-center justify-content-center">
   <%= image_tag "profile.jpg", class: "rounded-circle me-2", width: "32px", height: "32px" %>
   <p><%= current_user.email %></p>
@@ -51,21 +38,3 @@
 
     </div>
   </nav>
-=======
-    <hr>
-    <div class="dropdown">
-      <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <%= image_tag "user.png", class: "rounded-circle me-2", width: "24px", height: "24px" %>
-        <strong>Lenny</strong>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Sign out</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
->>>>>>> a1d585b36e286f9b6109a2ef4132c6ab84cc081d
