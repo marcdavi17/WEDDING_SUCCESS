@@ -15,7 +15,7 @@
 
     <%= render "shared/flashes" %>
 
-    <% if action_name == "home" %>
+    <% if action_name == "home" || controller_name == "sessions" %>
        <%= yield %>
     <% else %>
       <div class="main-layout-container">
