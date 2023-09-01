@@ -1,10 +1,11 @@
 class DesksController < ApplicationController
   def index
-    @wedding = Wedding.find(params[:id])
+    @wedding = Wedding.find(params[:wedding_id])
     @desks = @wedding.desks
   end
 
   def new
+    @wedding = Wedding.find(params[:wedding_id])
     @desk = Desk.new
   end
 
@@ -19,10 +20,12 @@ class DesksController < ApplicationController
   end
 
   def show
+    @wedding = Wedding.find(params[:wedding_id])
     @desk = Desk.find(params[:id])
   end
 
   def edit
+    @wedding = Wedding.find(params[:wedding_id])
     @desk = Desk.find(params[:id])
   end
 

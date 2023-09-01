@@ -1,55 +1,42 @@
+<%= render "shared/navbarhome" %>
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" width="30" height="24">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
-    <% end %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-          </li>
-          <li class="nav-item">
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://images.pexels.com/photos/5876695/pexels-photo-5876695.jpeg?auto=compress&cs=tinysrgb&w=800", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out",destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
-<div class="container">
 <div class="banner">
-<%= image_tag "couple.png", width: 800 %>
   <div class="container">
     <h1> <strong>Wedding</strong>  <strong>Success</strong> </h1>
     <p>Plan your wedding in just few clicks.</p>
     <%= link_to "My Wedding",dashboard_path, class: "btn btn-ghost" %>
   </div>
-</div>
-</div>
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
-  </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-    Dinner
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag"couple.png", class:"d-block w-100", alt:"..."%>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag"photo4.jpg", class:"d-block w-100", alt:"..."%>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag"photo1.jpg", class:"d-block w-100", alt:"..."%>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1663016588863-c6a7a4891989?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=natali-hordiiuk-F-hjJkR2PmQ-unsplash.jpg)">
+      Build your wedding
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1631133961299-4bbfedcac74e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=filipp-romanovski-p89ud3EfIi0-unsplash.jpg)">
+      More Info
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1599947639832-469d35326568?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=nina-hill-2n7DBujSttY-unsplash.jpg)">
+      Reviews
+    </div>
+  </div>
+</div>
+
+
 <%= render "shared/footer" %>

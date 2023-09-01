@@ -6,7 +6,7 @@
           Create a New Desk
         </div>
         <div class="card-body">
-          <%= simple_form_for @desk do |f| %>
+          <%= simple_form_for [@wedding, @desk] do |f| %>
             <%= @desk.errors.full_messages.to_sentence %>
             <div class="mb-3">
               <%= f.label :name, "Table Name:" %>
