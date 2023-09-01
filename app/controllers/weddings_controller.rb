@@ -9,5 +9,6 @@ class WeddingsController < ApplicationController
       !guest.guest_desks.empty?
     end
     @pending_guests = @guests - @assigned_guests
+    @desks = @wedding.desks
   end
 end
