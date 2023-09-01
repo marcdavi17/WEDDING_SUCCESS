@@ -1,6 +1,7 @@
 class DesksController < ApplicationController
   def index
-    @desks = Desk.all
+    @wedding = Wedding.find(params[:id])
+    @desks = @wedding.desks
   end
 
   def new
