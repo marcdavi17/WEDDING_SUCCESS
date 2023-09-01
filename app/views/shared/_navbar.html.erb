@@ -7,8 +7,10 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
         <%= link_to dashboard_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "dashboard"}" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-            Dashboard
+          <div class="d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-bars me-3"></i>
+            <p>Dashboard</p>
+          </div>
         <% end %>
       </li>
       <li>
