@@ -1,26 +1,26 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-gold wedding-navbar">
-    <%= link_to root_path, class: "d-flex align-items-centerauto text-decoration-none" do %>
-      <%= image_tag "W.png", id: "sidebar-logo" %>
-      <span class="lg-12">WEDDING SUCCESS</span>
+    <%= link_to root_path, class: "items-centerauto text-decoration-none" do %>
+      <%= image_tag "WSlogo.png", id: "sidebar-logo" %>
     <% end %>
     <hr>
+          <%# <div class="d-flex">Hello Lenny!</div> %>
     <ul class="nav nav-pills flex-column mb-auto">
       <li>
         <%= link_to dashboard_path, class: "nav-link #{"active" if controller_name == "pages" && action_name == "dashboard"}" do %>
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-          DASHBOARD
+            Dashboard
         <% end %>
       </li>
       <li>
-        <%= link_to guests_path, class: "nav-link #{"active" if controller_name == "guests" && action_name == "index"}" do %>
-          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-          INVITES
-        <% end %>
+        <%#= link_to guests_path, class: "nav-link #{"active" if controller_name == "guests" && action_name == "index"}" do %>
+          <%# <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg> %>
+          <%# INVITES %>
+        <%# end %>
       </li>
       <li>
         <%= link_to "#", class: "nav-link" do %>
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-          SEATING PLAN
+          Guests
         <% end %>
       </li>
       <li>
@@ -41,6 +41,7 @@
       </ul>
     </div>
   </div>
+=======
 
   <div class="nav-upper-options">
     <div class="nav-option option1">
@@ -55,12 +56,5 @@
         <h3><%= link_to "Invités", wedding_families_path(@wedding) %></h3>
       </div>
 
-      <div class="nav-option option3">
-        <%= image_tag "loupe.png", class: "nav-img" %>
-        <h3><%= link_to "Plan de tables", desks_path(@wedding) %></h3>
-      </div>
 
-    <% end %>
-
-  </div>
 </nav>
