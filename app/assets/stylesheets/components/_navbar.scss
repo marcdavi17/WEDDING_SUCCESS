@@ -1,8 +1,11 @@
 .bg-gold {
-  background-color: #F6CC8F!important;
+  background-color: white!important;
 }
 .wedding-navbar {
-  height: 100vh;
+  // height: 100%;
+  width: 260px;
+  float: left;
+  // position: fixed;
   a {
     color: $gray;
   }
@@ -15,8 +18,11 @@
   }
 
   #sidebar-logo{
-    width: 55px;
     border-radius: 50%;
+    align-items: center;
   }
 }
 
+.padding {
+  padding: 60px;
+}

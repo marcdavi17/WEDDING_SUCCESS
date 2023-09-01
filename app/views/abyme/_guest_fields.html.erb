@@ -1,11 +1,11 @@
 <%# Partial for guest fields %>
 <%= f.input :first_name %>
 <%= f.input :last_name %>
-<%= f.input :gender %>
-<%= f.input :age_category %>
+<%= f.input :gender, collection: Guest::GENDER %>
+<%#= f.input :age_category %>
 <%= f.input :witness %>
-<%= f.input :status %>
-<%= f.input :spouse %>
+<%#= f.input :status %>
+<%= f.association :spouse, as: :select, label_method: :first_name %>
 
 <%= f.hidden_field :_destroy %>
 <%= remove_associated_record content: "Remove guest" %>
