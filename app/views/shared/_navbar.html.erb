@@ -21,10 +21,10 @@
         <% end %>
       </li>
       <li>
-        <%= link_to "#", class: "nav-link" do %>
+        <%= link_to wedding_desks_path(@wedding), class: "nav-link #{"active" if controller_name == "desks" && action_name == "index"}" do %>
           <div class="d-flex align-items-center justify-content-center">
             <i class="fa-solid fa-chair me-3"></i>
-            <p>Seating Plan</p>
+            <p>Tables</p>
           </div>
         <% end %>
       </li>
