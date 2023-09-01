@@ -18,13 +18,32 @@
 
 <h1>My sitting plan</h1>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    Pending Guests
+<div class="d-flex justify-content-start">
+  <div class="card m-3" style="width: 18rem;">
+    <div class="card-header">
+      Pending Guests
+    </div>
+    <ul class="list-group list-group-flush">
+      <% @pending_guests.each do |pending_guest| %>
+      <li class="list-group-item">
+      <p> <%= pending_guest.first_name %> <%= pending_guest.last_name %> </p>
+      <button type="button" class="btn btn-secondary btn-sm">Assign to a table</button>
+      </li>
+      <% end %>
+    </ul>
   </div>
-  <ul class="list-group list-group-flush">
-    <% @pending_guests.each do |pending_guest| %>
-    <li class="list-group-item"><%= pending_guest.first_name %> <%= pending_guest.last_name %></li>
-    <% end %>
-  </ul>
+
+  <div class="card m-3" style="width: 18rem;">
+    <div class="card-header">
+      Avaibles Tables
+    </div>
+    <ul class="list-group list-group-flush">
+      <% @desks.each do |desk| %>
+        <li class="list-group-item">
+          <p> <%= desk.name %> : <%= desk.guests.count %> / <%= desk.capacity %> places </p>
+          <%# <button type="button" class="btn btn-secondary btn-sm">Add Guest</button> %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
