@@ -1,5 +1,12 @@
 <div class="container d-flex justify-content-around">
   <div class="div">
+    <h2>Wedding Date</h2>
+    <div class="date">
+      <p class="ymd">Sept 15, 2023</p>
+      <p class="countdown">11 Days Left</p>
+    </div>
+  </div>
+  <div class="div">
     <h2>Total Guests</h2>
     <div class="stats-card">
       <p class="stat">145</p>
@@ -7,10 +14,21 @@
     </div>
   </div>
   <div class="div">
-    <h2>Wedding Date</h2>
-    <div class="date">
-      <p class="ymd">Sept 15, 2023</p>
-      <p class="countdown">11 Days Left</p>
+<h2>Dress Code</h2>
+  <div id="carouseldresscode" class="carouselslide" data-bs-ride="carousel1">
+    <div class="carousel-now">
+      <div class="carousel-dress">
+        <%= image_tag"robe.jpg", class:"d-block w-100", alt:"..."%>
+      </div>
+      <div class="carousel-dress">
+        <%= image_tag"tenue.jpeg", class:"d-block w-100", alt:"..."%>
+      </div>
+      <div class="carousel-dress">
+        <%= image_tag"costume.jpeg", class:"d-block w-100", alt:"..."%>
+      </div>
     </div>
+  </div>
+</div>
+
   </div>
 </div>
