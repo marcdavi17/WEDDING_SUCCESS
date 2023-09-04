@@ -2,27 +2,27 @@
 
 <div class="banner">
   <div class="container">
-    <h1> <strong>Wedding</strong>  <strong>Success</strong> </h1>
-    <p>Plan your wedding in just few clicks.</p>
-    <%= link_to "My Wedding",dashboard_path, class: "btn btn-ghost" %>
+    <h1> <strong>Wedding Success</strong> </h1>
+    <p>Plan your wedding in just few clicks</p>
+    <%= link_to "Prepare My Wedding Now", dashboard_path, class: "btn btn-ghost" %>
   </div>
 
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <%= image_tag"couple.png", class:"d-block w-100", alt:"..."%>
+        <%= image_tag"pexel2.jpg", class:"d-block w-100", alt:"..."%>
       </div>
       <div class="carousel-item">
-        <%= image_tag"photo4.jpg", class:"d-block w-100", alt:"..."%>
+        <%= image_tag"pexel5.jpg", class:"d-block w-100", alt:"..."%>
       </div>
       <div class="carousel-item">
-        <%= image_tag"photo1.jpg", class:"d-block w-100", alt:"..."%>
+        <%= image_tag"pexel6.jpg", class:"d-block w-100", alt:"..."%>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<%# <div class="container">
   <div class="cards">
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1663016588863-c6a7a4891989?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=natali-hordiiuk-F-hjJkR2PmQ-unsplash.jpg)">
       Build your wedding
@@ -34,6 +34,27 @@
 
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1599947639832-469d35326568?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&dl=nina-hill-2n7DBujSttY-unsplash.jpg)">
       Reviews
+    </div>
+  </div>
+</div> %>
+
+<div class="containerhome text-center">
+  <div class="row m-3">
+    <div class="col-sm-8 rounded mx-auto d-block">
+      <%= image_tag"pexel3.jpg", class:"center d-block w-100", alt:"..."%>
+    </div>
+    <div class="col-sm-4">
+    <h2>Managing your wedding is easy</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+  <div class="row m-3">
+    <div class="col-sm-4">
+      <h2>My wedding, My plans</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="col-sm-8">
+      <%= image_tag"pexel3.jpg", class:"center d-block w-100", alt:"..."%>
     </div>
   </div>
 </div>
