@@ -3,6 +3,12 @@
   color: $orange;
 }
 
+.btn-2 {
+  background-color: black;
+  color: $light-gray;
+  border-color: $blue;
+}
+
 .btn-1 a:hover{
   background-color: $orange!important;
 }

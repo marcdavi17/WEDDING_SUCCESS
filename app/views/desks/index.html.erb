@@ -30,11 +30,11 @@
               <li><%= guest_desk.guest.first_name %> <%= guest_desk.guest.last_name %></li>
             <% end %>
           </ul>
-        <button type="button" class="btn btn-light"><%= link_to "Edit table", edit_wedding_desk_path(@wedding, desk) %></button>
+        <button type="button" class="btn-1 btn-light"><%= link_to "Edit table", edit_wedding_desk_path(@wedding, desk) %></button>
       </div>
     </div>
   <% end %>
 
-<button type="button" class="btn btn-info"><%= link_to "Add a table", new_wedding_desk_path(@wedding) %></button>
+<button type="button" class="btn-2 btn-block"><%= link_to "Add a table", new_wedding_desk_path(@wedding) %></button>
 
 </div>
