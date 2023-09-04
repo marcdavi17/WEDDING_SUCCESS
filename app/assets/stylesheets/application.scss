@@ -10,8 +10,16 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "desks/index";
 
 .main-layout-container {
   display: flex;
-
+  height: 100vh;
+  overflow: hidden;
+  .main-right-content {
+    height: 100%;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 1em;
+  }
 }
