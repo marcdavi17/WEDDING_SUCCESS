@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   resources :weddings, only: [:show] do
     resources :families
     resources :desks
+    resources :guest_desks
     member do
       resources :guests
+      post 'assign_guests'
       get 'guest_desks/affect', to: 'guest_desks#affect'
-      resources :guest_desks
       get "sitting_plan", to: "weddings#sitting_plan"
     end
   end

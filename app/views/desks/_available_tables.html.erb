@@ -1,0 +1,13 @@
+<% @desks.each do |desk| %>
+  <li class="list-group-item">
+    <p> <%= desk.name %> : <%= desk.guests.count %> / <%= desk.capacity %> places </p>
+
+    <%= simple_form_for ([@wedding, desk], remote: true) do |f| %>
+      <div class="form-group">
+        <%= f.collection_select :guest_ids, @pending_guests, :id, :full_name, {}, { multiple: true, class: 'form-control' } %>
+      </div>
+      <%= f.submit "Assign", class: "btn btn-primary btn-sm" %>
+    <% end %>
+
+  </li>
+<% end %>

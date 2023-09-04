@@ -1,0 +1,13 @@
+<% @pending_guests.each do |pending_guest| %>
+  <li class="list-group-item">
+    <p> <%= pending_guest.full_name %> </p>
+
+    <%= simple_form_for [@wedding, GuestDesk.new] do |f| %>
+      <div class="form-group">
+        <%= f.collection_select :desk_id, @desks, :id, :name, {}, { multiple: false, class: 'form-control' } %>
+      </div>
+      <%= f.submit "Assign to Table", class: "btn btn-success btn-sm" %>
+    <% end %>
+
+  </li>
+<% end %>

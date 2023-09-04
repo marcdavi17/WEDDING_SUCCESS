@@ -11,15 +11,16 @@ class GuestDesksController < ApplicationController
   #   @desk = Desk.new
   # end
 
-  # def create
-  #   @desk = Desk.new(desk_params)
-  #   @desk.wedding = current_user.weddings.last
-  #   if @desk.save
-  #     redirect_to action: "index"
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @wedding = Wedding.find(params[:wedding_id])
+    @guest_desk = GuestDesk.new(guest_desk_params)
+    # @desk.wedding = current_user.weddings.last
+    if @guest_desk.save
+      redirect_to sitting_plan_wedding_path(@wedding)
+    else
+      render :new
+    end
+  end
 
   # def show
   #   @guest_desks = GuestDesk.find(params[:id])
@@ -38,9 +39,9 @@ class GuestDesksController < ApplicationController
   #   end
   # end
 
-  # private
+  private
 
-  # def desk_params
-  #   params.require(:desk).permit(:name, :capacity, :shape)
-  # end
+  def guest_desk_params
+    params.require(:guest_desk).permit(:guest_id, :desk_id)
+  end
 end
