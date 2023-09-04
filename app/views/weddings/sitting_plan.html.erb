@@ -25,8 +25,15 @@
     <ul class="list-group list-group-flush">
       <% @pending_guests.each do |pending_guest| %>
       <li class="list-group-item">
-      <p> <%= pending_guest.first_name %> <%= pending_guest.last_name %> </p>
-      <button type="button" class="btn btn-secondary btn-sm">Assign to a table</button>
+        <p> <%= pending_guest.first_name %> <%= pending_guest.last_name %> </p>
+
+        <%= simple_form_for [@wedding, GuestDesk.new] do |f| %>
+          <%= f.input :guest_id, input_html:{value: pending_guest.id}, as: :hidden %>
+          <div class="form-group">
+            <%= f.collection_select :desk_id, @desks, :id, :name, {}, { multiple: false, class: 'form-control' } %>
+          </div>
+          <%= f.submit "Assign to Table", class: "btn btn-success btn-sm" %>
+        <% end %>
       </li>
       <% end %>
     </ul>

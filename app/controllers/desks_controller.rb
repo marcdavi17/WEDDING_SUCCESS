@@ -13,6 +13,8 @@ class DesksController < ApplicationController
     @desk = Desk.new(desk_params)
     @desk.wedding = current_user.weddings.last
     if @desk.save
+      selected_guest_ids = params[:desk][:pending_guests]
+      @desk.guests << Guest.where(id: selected_guest_ids) if selected_guest_ids.present?
       redirect_to action: "index"
     else
       render :new
@@ -38,6 +40,19 @@ class DesksController < ApplicationController
     end
   end
 
+  def assign_guests
+    @desk = Desk.find(params[:id])
+    @guests = Guest.where(id: params[:desk][:guest_ids])
+
+    if @desk.guests << @guests
+      respond_to do |format|
+        format.js
+      end
+    else
+      # Handle errors
+    end
+  end
+  
   private
 
   def desk_params
