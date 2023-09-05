@@ -17,31 +17,45 @@
 
 <h1>My sitting plan</h1>
 
-<div class="d-flex justify-content-start">
-  <div class="card m-3" style="width: 18rem;">
-    <div class="card-header">
-      Pending Guests
+    <div class="card m-3">
+      <div class="card-header">
+        Pending Guests
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"> <%= @pending_guests.count %> guest(s) is/are not assigned</h5>
+         <ul>
+          <% @pending_guests.each do |pending_guest| %>
+          <li class="list-group-item">
+            <p> <%= pending_guest.first_name %> <%= pending_guest.last_name %> </p>
+
+            <%= simple_form_for [@wedding, GuestDesk.new] do |f| %>
+              <div class="form-control d-flex justify-content-start">
+                <%= f.input :guest_id, input_html:{value: pending_guest.id}, as: :hidden %>
+                <%= f.collection_select :desk_id, @desks, :id, :name, {}, { multiple: false, class: 'form-control' } %>
+                <%= f.submit "Assign to Table", class: "btn btn-success btn-sm" %>
+              </div>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <% @pending_guests.each do |pending_guest| %>
-      <li class="list-group-item">
-        <p> <%= pending_guest.first_name %> <%= pending_guest.last_name %> </p>
 
-        <%= simple_form_for [@wedding, GuestDesk.new] do |f| %>
-          <%= f.input :guest_id, input_html:{value: pending_guest.id}, as: :hidden %>
-          <div class="form-group">
-            <%= f.collection_select :desk_id, @desks, :id, :name, {}, { multiple: false, class: 'form-control' } %>
-          </div>
-          <%= f.submit "Assign to Table", class: "btn btn-success btn-sm" %>
-        <% end %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div class="card m-3" style="width: 18rem;">
-    <div class="card-header">
-      Avaibles Tables
+    <div class="card m-3">
+      <div class="card-header">
+        Avaibles Tables
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"> <%= @desks.count %> tables are availables</h5>
+         <ul>
+          <% @desks.each do |desk| %>
+          <li class="list-group-item">
+            <p> <%= desk.name %> : <%= desk.guests.count %> / <%= desk.capacity %> places </p>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
     <ul class="list-group list-group-flush">
       <% @desks.each do |desk| %>

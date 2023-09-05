@@ -1,0 +1,19 @@
+.desk-gauge {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 2px;
+  .desk-gauge-item {
+    width: 4px;
+    height: 25px;
+    border: 1px solid $marronbis;
+    border-radius: 1rem;
+  }
+  .desk-gauge-item.taken {
+    background-color: $marronbis;
+  }
+}
+.desk-gauge-info {
+  margin-bottom: 0;
+  margin-left: 0.7rem;
+  font-size: small;
+}

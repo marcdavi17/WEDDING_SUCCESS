@@ -1,19 +1,22 @@
 .desk-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-right: 20px;
 }
 
 
 .desk-card {
-  display: flex;
-  border: $marronbis -1px solid;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  padding: 1rem;
+  border: 2px solid transparent;
   border-radius: 6px;
   margin: 10px;
   justify-content: space-around;
   background-color: whitesmoke;
   box-shadow: 3px 3px 3px rgb(177, 177, 177);
-
+  &.active {
+    border: 2px solid $marronbis;
+  }
 
 }
 
@@ -21,13 +24,25 @@
 
   .desk-feature{
     display: flex;
+    align-items: center;
     padding-top: 10px;
+    img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+    p {
+      margin-left: .6rem;
+      margin-bottom: 0;
+    }
   }
 
 }
 
 .desk-card-right {
-
+  display: flex;
+  flex-direction: column;
+  > div:first-child { flex-grow: 1 }
   .desk-gauge-container{
     display: flex;
     padding-top: 10px;
@@ -36,7 +51,15 @@
   .desk-cta{
     display: flex;
     padding-top: 50px;
-    text-decoration-line: none;
+    text-decoration: none;
+    color: black;
+    font-size: small;
+    font-weight: bold;
+    img {
+      margin-left: 0.6rem;
+      position: relative;
+      top: -1px;
+    }
   }
 
 }

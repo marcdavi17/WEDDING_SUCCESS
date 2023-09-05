@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-around">
+<div class="container dashboard-grid">
   <div class="div">
     <h2>Wedding Date</h2>
     <div class="date">
@@ -6,6 +6,17 @@
       <p class="countdown">11 Days Left</p>
     </div>
   </div>
+
+  <div class="div">
+    <h2>Spouses</h2>
+    <div class="spouse-card">
+      <p class="pro">Ms & Mr</p>
+      <p class="name">Lenny D & Vince T</p>
+    </div>
+  </div>
+</div>
+
+<div class="container dashboard-grid">
   <div class="div">
     <h2>Total Guests</h2>
     <div class="stats-card">
@@ -13,22 +24,29 @@
       <p class="stat-info">Guests</p>
     </div>
   </div>
-  <div class="div">
-<h2>Dress Code</h2>
-  <div id="carouseldresscode" class="carouselslide" data-bs-ride="carousel1">
-    <div class="carousel-now">
-      <div class="carousel-dress">
-        <%= image_tag"robe.jpg", class:"d-block w-100", alt:"..."%>
-      </div>
-      <div class="carousel-dress">
-        <%= image_tag"tenue.jpeg", class:"d-block w-100", alt:"..."%>
-      </div>
-      <div class="carousel-dress">
-        <%= image_tag"costume.jpeg", class:"d-block w-100", alt:"..."%>
-      </div>
-    </div>
-  </div>
-</div>
 
+  <div class="">
+    <h2>Dress Code</h2>
+    <div id="carouselDashboard" class="carousel slide" data-interval="false">
+      <div class="carousel-inner dashboard-carousel">
+        <div class="carousel-item active dashboard-carousel">
+          <img src="<%= image_path "robe.jpg" %>" class="d-block dress-img-carousel" alt="...">
+        </div>
+        <div class="carousel-item dashboard-carousel">
+          <img src="<%= image_path "tenue.jpeg" %>" class="d-block dress-img-carousel" alt="...">
+        </div>
+        <div class="carousel-item dashboard-carousel">
+          <img src="<%= image_path "costume.jpeg" %>" class="d-block dress-img-carousel" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselDashboard" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselDashboard" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
 </div>

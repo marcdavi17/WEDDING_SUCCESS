@@ -13,45 +13,46 @@
   </div>
 </nav>
 
-<div class="container m-3">
-
-  <h1>All my tables</h1>
-
-<div class="desk-grid">
-  <% @desks.each do |desk| %>
-    <div class="desk-card">
-      <div class="desk-card-left">
-        <h3><%= desk.name %></h3>
-        <div class="desk-feature">
-          <%= image_tag "table.svg" %>
-          <p> seats (<%= desk.shape %>)</p>
-        </div>
-        <div class="desk-feature">
-          <%= image_tag "groupe.svg" %>
-          <p> Capacity: <%= desk.capacity %></p>
-        </div>
-      </div>
-      <div class="desk-card-right">
-        <div class="desk-gauge-container">
-          <div class="desk-gauge">
-            <div class="desk-gauge-item"></div>
-            <div class="desk-gauge-item"></div>
-            <div class="desk-gauge-item"></div>
-            <div class="desk-gauge-item"></div>
-            <div class="desk-gauge-item"></div>
-            <div class="desk-gauge-item"></div>
+<div class="container">
+  <div class="m3">
+    <h1>All my tables</h1>
+    <div class="desk-grid">
+      <% @desks.each do |desk| %>
+        <div class="desk-card">
+          <div class="desk-card-left">
+            <h3><%= desk.name %></h3>
+            <div class="desk-feature">
+              <%= image_tag "table.svg" %>
+              <p><%= desk.shape.capitalize %> table</p>
+            </div>
+            <div class="desk-feature">
+              <%= image_tag "groupe.svg" %>
+              <p>Max. <%= desk.capacity %> guests</p>
+            </div>
           </div>
-          <p class="desk-gauge-info">3 seats left</p>
+          <div class="desk-card-right">
+            <div>
+              <div class="desk-gauge-container">
+                <div class="desk-gauge">
+                  <% desk.taken_seats.times do  %>
+                    <div class="desk-gauge-item taken"></div>
+                  <% end %>
+                  <% desk.remaining_seats.times do  %>
+                    <div class="desk-gauge-item"></div>
+                  <% end %>
+                </div>
+                <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
+              </div>
+            </div>
+            <%= link_to edit_wedding_desk_path(@wedding, desk), class: "desk-cta" do %>
+              See guests list <%= image_tag "arrow.svg" %>
+            <% end %>
+          </div>
         </div>
-        <div class="desk-cta">
-        <%= link_to "See guests list", edit_wedding_desk_path(@wedding, desk) %>
-          <%= image_tag "arrow.svg" %>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
-<button type="button" class="btn btn-info"><%= link_to "Add a table", new_wedding_desk_path(@wedding) %></button>
+    <button type="button" class="btn btn-info"><%= link_to "Add a table", new_wedding_desk_path(@wedding) %></button>
+  </div>
 
 </div>
 <%#
