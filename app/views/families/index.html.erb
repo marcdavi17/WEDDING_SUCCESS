@@ -1,3 +1,19 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to "All guests by groups", wedding_families_path(@wedding), class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "All guests by persons", guests_path(@wedding), class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="container">
 
   <div class="d-flex justify-content-between">
