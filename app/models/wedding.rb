@@ -7,4 +7,11 @@ class Wedding < ApplicationRecord
 
   geocoded_by :city_hall
   after_validation :geocode, if: :will_save_change_to_city_hall?
+
+  def not_affected_guests
+    assigned_guests = guests.select do |guest|
+      !guest.guest_desks.empty?
+    end
+    guests - assigned_guests
+  end
 end

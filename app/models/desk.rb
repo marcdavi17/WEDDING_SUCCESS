@@ -10,4 +10,8 @@ class Desk < ApplicationRecord
   def remaining_seats
     capacity - taken_seats
   end
+
+  def status
+    capacity == guests.count ? "COMPLETE" : "PENDING"
+  end
 end

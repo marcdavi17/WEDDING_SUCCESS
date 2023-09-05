@@ -33,9 +33,9 @@ weddingaccess1.save!
 puts "Weddings accesses created!"
 
 puts "Creating spouses..."
-spouse1 = Spouse.new({first_name: "Jean", last_name: "LEGROS", gender: "male", wedding: wedding1})
+spouse1 = Spouse.new({first_name: "Jean", last_name: "LEGROS", gender: "man", wedding: wedding1})
 spouse1.save!
-spouse2 = Spouse.new({first_name: "Lucie", last_name: "PETIT", gender: "female", wedding: wedding1})
+spouse2 = Spouse.new({first_name: "Lucie", last_name: "PETIT", gender: "woman", wedding: wedding1})
 spouse2.save!
 puts "Spouses created!"
 
@@ -64,26 +64,26 @@ family6.save!
 puts "Families created!"
 
 puts "Creating guests..."
-guest1 = Guest.new({first_name: "Marc", last_name: "MARTIN", gender: "male", age_category: 30, witness: false, status: 1, family: family1, spouse: spouse1})
+guest1 = Guest.new({first_name: "Marc", last_name: "MARTIN", gender: "man", age_category: 30, witness: false, status: 1, family: family1, spouse: spouse1})
 guest1.save!
-guest2 = Guest.new({first_name: "Jeannot", last_name: "MARTIN", gender: "male", age_category: 50, witness: false, status: 2, family: family1, spouse: spouse1})
+guest2 = Guest.new({first_name: "Jeannot", last_name: "MARTIN", gender: "man", age_category: 50, witness: false, status: 2, family: family1, spouse: spouse1})
 guest2.save!
-guest3 = Guest.new({first_name: "Marie", last_name: "LEGRAND", gender: "female", age_category: 40, witness: true, status: 1, family: family2, spouse: spouse2})
+guest3 = Guest.new({first_name: "Marie", last_name: "LEGRAND", gender: "woman", age_category: 40, witness: true, status: 1, family: family2, spouse: spouse2})
 guest3.save!
-guest4 = Guest.new({first_name: "Julien", last_name: "LEGRAND", gender: "male", age_category: 30, witness: false, status: 1, family: family2, spouse: spouse2})
+guest4 = Guest.new({first_name: "Julien", last_name: "LEGRAND", gender: "man", age_category: 30, witness: false, status: 1, family: family2, spouse: spouse2})
 guest4.save!
-guest5 = Guest.new({first_name: "Thomas", last_name: "TOUSEUL", gender: "male", age_category: 30, witness: false, status: 1, family: family1, spouse: spouse2})
+guest5 = Guest.new({first_name: "Thomas", last_name: "TOUSEUL", gender: "man", age_category: 30, witness: false, status: 1, family: family1, spouse: spouse2})
 guest5.save!
 
-guest6 = Guest.new({first_name: "Marc", last_name: "LEGROS", gender: "male", age_category: 30, witness: false, status: 1, family: family3, spouse: spouse1})
+guest6 = Guest.new({first_name: "Marc", last_name: "LEGROS", gender: "man", age_category: 30, witness: false, status: 1, family: family3, spouse: spouse1})
 guest6.save!
-guest7 = Guest.new({first_name: "Jeannot", last_name: "LEPETIT", gender: "male", age_category: 50, witness: false, status: 2, family: family4, spouse: spouse1})
+guest7 = Guest.new({first_name: "Jeannot", last_name: "LEPETIT", gender: "man", age_category: 50, witness: false, status: 2, family: family4, spouse: spouse1})
 guest7.save!
-guest8 = Guest.new({first_name: "Marie", last_name: "LELOUCHE", gender: "female", age_category: 40, witness: true, status: 1, family: family6, spouse: spouse2})
+guest8 = Guest.new({first_name: "Marie", last_name: "LELOUCHE", gender: "woman", age_category: 40, witness: true, status: 1, family: family6, spouse: spouse2})
 guest8.save!
-guest9 = Guest.new({first_name: "Julien", last_name: "LEBEL", gender: "male", age_category: 30, witness: false, status: 1, family: family5, spouse: spouse2})
+guest9 = Guest.new({first_name: "Julien", last_name: "LEBEL", gender: "man", age_category: 30, witness: false, status: 1, family: family5, spouse: spouse2})
 guest9.save!
-guest10 = Guest.new({first_name: "Thomas", last_name: "LEBEL", gender: "male", age_category: 30, witness: false, status: 1, family: family5, spouse: spouse2})
+guest10 = Guest.new({first_name: "Thomas", last_name: "LEBEL", gender: "man", age_category: 30, witness: false, status: 1, family: family5, spouse: spouse2})
 guest10.save!
 puts "Guests created!"
 

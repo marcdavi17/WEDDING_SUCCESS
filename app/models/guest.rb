@@ -9,4 +9,8 @@ class Guest < ApplicationRecord
   validates :first_name, presence: true
 
   GENDER = ["woman", "man", "other"]
+
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end
