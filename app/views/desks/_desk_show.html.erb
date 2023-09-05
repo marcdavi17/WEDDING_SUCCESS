@@ -53,10 +53,12 @@
     <% unless desk.status == "COMPLETE" %>
       <p><strong>Add a guest to this table</strong></p>
       <%= simple_form_for [wedding, GuestDesk.new] do |f| %>
+      <div class="desk-add-guest">
         <%= f.input :desk_id, as: :hidden, input_html: {value: desk.id} %>
         <%= f.input :guest_id, as: :select, collection: wedding.not_affected_guests, label_method: :fullname, prompt: "Please select a guest to add at this table", label: false %>
-        <button type="submit" class="tab">GO</button>
+        <button type="submit" class="tab">+</button>
       <% end %>
+      </div>
 
     <% end %>
 
