@@ -40,10 +40,12 @@ spouse2.save!
 puts "Spouses created!"
 
 puts "Creating desks..."
-desk1 = Desk.new({name: "Table fleurie", capacity: 6, shape: "ronde", wedding: wedding1})
+desk1 = Desk.new({name: "Iris", capacity: 6, shape: "Round", wedding: wedding1})
 desk1.save!
-desk2 = Desk.new({name: "Table jolie", capacity: 8, shape: "rectangulaire", wedding: wedding1})
+desk2 = Desk.new({name: "Lys", capacity: 8, shape: "Round", wedding: wedding1})
 desk2.save!
+desk3 = Desk.new({name: "Rose", capacity: 10, shape: "Rectangular", wedding: wedding1})
+desk3.save!
 puts "Desks created!"
 
 puts "Creating families..."
