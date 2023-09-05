@@ -44,14 +44,78 @@
                 <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
               </div>
             </div>
-            <%= link_to edit_wedding_desk_path(@wedding, desk), class: "desk-cta" do %>
+
+            <%= link_to edit_wedding_desk_path(@wedding, desk), class: "desk-cta", aria_controls: "offcanvasRight", data: { bs_toggle: "offcanvas", bs_target: "#offcanvasEdit-#{desk.id}" } do %>
               See guests list<%= image_tag "arrow.svg" %>
             <% end %>
           </div>
         </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit-<%= desk.id %>" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Modify Desk</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="card">
+              <div class="card-body">
+                <%= simple_form_for [@wedding, desk] do |f| %>
+                  <%= desk.errors.full_messages.to_sentence %>
+                  <div class="mb-3">
+                    <%= f.label :name, "Table Name:" %>
+                    <%= f.text_field :name, class: "form-control" %>
+                  </div>
+                  <div class="mb-3">
+                    <%= f.label :capacity, "Table Capacity:" %>
+                    <%= f.number_field :capacity, class: "form-control", min: 6, max: 12 %>
+                  </div>
+                  <div class="mb-3">
+                    <%= f.label :shape, "Table Shape:" %>
+                    <%= f.select :shape, options_for_select([['Square', 'square'], ['Rectangle', 'rectangle']]), {}, class: "form-control" %>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
-    <button type="button" class="btn btn-info"><%= link_to "Add a table", new_wedding_desk_path(@wedding) %></button>
+
+    <%= link_to "Add a table", new_wedding_desk_path(@wedding), class: "btn btn-info", aria_controls: "offcanvasRight", data: { bs_toggle: "offcanvas", bs_target: "#offcanvasNewDesk" } %>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNewDesk" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">New Desk</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div class="card">
+          <div class="card-body">
+            <%= simple_form_for [@wedding, @desk] do |f| %>
+              <%= @desk.errors.full_messages.to_sentence %>
+              <div class="mb-3">
+                <%= f.label :name, "Table Name:" %>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :capacity, "Table Capacity:" %>
+                <%= f.number_field :capacity, class: "form-control", min: 6, max: 12 %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :shape, "Table Shape:" %>
+                <%= f.select :shape, options_for_select([['Square', 'square'], ['Rectangle', 'rectangle']]), {}, class: "form-control" %>
+              </div>
+              <div class="d-grid gap-2">
+                <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>
