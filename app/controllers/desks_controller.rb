@@ -2,6 +2,7 @@ class DesksController < ApplicationController
   def index
     @wedding = Wedding.find(params[:wedding_id])
     @desks = @wedding.desks
+    @desk = Desk.new
   end
 
   def new
@@ -52,7 +53,7 @@ class DesksController < ApplicationController
       # Handle errors
     end
   end
-  
+
   private
 
   def desk_params
