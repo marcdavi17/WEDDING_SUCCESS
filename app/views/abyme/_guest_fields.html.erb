@@ -9,3 +9,31 @@
 
 <%= f.hidden_field :_destroy %>
 <%= remove_associated_record content: "Remove guest" %>
+<%# Partial for guest fields %>
+<div class="form-group">
+  <%= f.label :first_name, class: "form-label" %>
+  <%= f.text_field :first_name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :last_name, class: "form-label" %>
+  <%= f.text_field :last_name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :gender, class: "form-label" %>
+  <%= f.select :gender, Guest::GENDER, {}, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :witness, class: "form-label" %>
+  <%= f.text_field :witness, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :spouse, class: "form-label" %>
+  <%= f.select :spouse, options_for_select(User.all.map { |u| [u.first_name, u.id] }), {}, class: "form-control" %>
+</div>
+
+<%= f.hidden_field :_destroy %>
+<%= remove_associated_record content: "Remove guest", class: "btn btn-danger" %>
