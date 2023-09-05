@@ -18,7 +18,7 @@ GuestDesk.destroy_all
 puts "Database cleaned!"
 
 puts "Creating users..."
-user1 = User.new({email: "lenny@yopmail.com", password: "123456"})
+user1 = User.new({email: "lucie@yopmail.com", password: "123456"})
 user1.save!
 puts "Users created!"
 

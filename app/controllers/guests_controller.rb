@@ -1,7 +1,10 @@
 class GuestsController < ApplicationController
 
   def index
+    @wedding = Wedding.find(params[:id])
+    # @guests = @wedding.guests.all
     @guests = Guest.all
+    # @family = Family.new
   end
 
   def new
