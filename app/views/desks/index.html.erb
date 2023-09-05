@@ -15,8 +15,10 @@
 
 <div class="container">
   <div class="m3">
+<div class="d-flex justify-content-between">
     <h1>All my tables</h1>
-    <%= link_to "Add a table", new_wedding_desk_path(@wedding), class: "btn btn-3", aria_controls: "offcanvasRight", data: { bs_toggle: "offcanvas", bs_target: "#offcanvasNewDesk" } %>
+    <%= link_to "+", new_wedding_desk_path(@wedding), class: "btn desk-btn-3", aria_controls: "offcanvasRight", data: { bs_toggle: "offcanvas", bs_target: "#offcanvasNewDesk" } %>
+    </div>
     <div class="desk-grid">
       <% @desks.each do |desk| %>
         <div class="desk-card">
