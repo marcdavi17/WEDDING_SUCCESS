@@ -11,6 +11,8 @@
 @import "components/index";
 @import "pages/index";
 @import "desks/index";
+@import "weddings/sitting_plan";
+// @import "dashboard";
 
 .main-layout-container {
   display: flex;
@@ -22,4 +24,11 @@
     flex-grow: 1;
     padding: 1em;
   }
+}
+
+.dashboard-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }

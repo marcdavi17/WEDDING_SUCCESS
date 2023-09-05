@@ -1,25 +1,87 @@
 
 <div class="container">
-  <h1>All guests by families</h1>
 
-  <% @families.each do |family| %>
-    <div class="card m-3">
-      <div class="card-header">
-        <%= family.guests.count %> persons
+  <div class="d-flex justify-content-between">
+    <h1>All guests by groups</h1>
+    <button class="btn btn-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add group</button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">New Group</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="card-body">
-        <h5 class="card-title"><%= family.name %></h5>
-        <p class="card-text">Guest list:</p>
-          <ul>
+      <div class="offcanvas-body">
+        <div class="card">
+          <div class="card-body">
+            <%= simple_form_for([@wedding, @family]) do |f| %>
+              <div class="mb-3">
+                <%= f.input :name, class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <%= f.input :email, class: "form-control" %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :guests, "Guests", class: "form-label" %>
+                <%= f.abyme_for :guests %>
+              </div>
+              <div class="d-grid gap-2">
+                <%= f.submit "Create Family", class: "btn btn-primary btn-block" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <% @families.each do |family| %>
+      <div class="card growing p-0 m-3 col-3">
+        <div class="card-header">
+          <%= family.guests.count %> persons
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <h5 class="card-title"><%= family.name %></h5>
+
+            <span data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-pen"></i></span>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
+              <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Edit Group</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="card-body">
+                  <%= simple_form_for([@wedding, family]) do |f| %>
+                    <div class="mb-3">
+                      <%= f.input :name, class: "form-control" %>
+                    </div>
+                    <div class="mb-3">
+                      <%= f.input :email, class: "form-control" %>
+                    </div>
+                    <div class="mb-3">
+                      <%= f.label :guests, "Guests", class: "form-label" %>
+                      <%= f.abyme_for :guests %>
+                    </div>
+                    <div class="d-grid gap-2">
+                      <%= f.submit "Modify Family", class: "btn btn-primary btn-block" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <ul class="hide-last-element">
             <% family.guests.each do |guest| %>
               <li><%= guest.first_name %> <%= guest.last_name %></li>
             <% end %>
           </ul>
-        <button type="button" class="btn btn-1"><%= link_to "Update family", edit_wedding_family_path(@wedding, family) %></button>
+        </div>
       </div>
-    </div>
-  <% end %>
-
-<button type="button" class="btn btn-info"><%= link_to "Add a family", new_wedding_family_path(@wedding) %></button>
+    <% end %>
+  </div>
 
 </div>

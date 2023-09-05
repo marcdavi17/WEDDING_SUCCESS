@@ -1,0 +1,27 @@
+.stats-card {
+  background-color: rosybrown;
+  padding: 3.5em;
+  border-radius: 1em;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  .stat {
+    font-size: 70px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 0;
+  }
+  .stat-info {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+}
+
+.card.growing {flex-grow: 1;}
+
+.hide-last-element{
+  li:last-child {
+    display: none;
+  }
+}

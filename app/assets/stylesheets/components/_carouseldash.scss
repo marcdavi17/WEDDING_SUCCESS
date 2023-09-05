@@ -1,0 +1,43 @@
+// .banner {
+//   .carousel {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     z-index: -1;
+//   }
+//   .carousel-inner .carousel-item img {
+//     width: 100%;
+//     object-fit: cover;
+//     height: 80vh;
+//     /* Maintenez le rapport hauteur-largeur des images */
+//     margin: 0 auto;
+//     /* Centrez les images horizontalement */
+//   }
+// }
+
+.container-carousel {
+  width: 85%;
+}
+
+#carouselDashboard {
+  width: 100%;
+}
+
+.carousel-inner.dashboard-carousel {
+  border-radius: 1em;
+  overflow: hidden;
+  height: 450px;
+}
+
+.carousel-item.dashboard-carousel {
+  height: 100%;
+}
+
+.dress-img-carousel {
+  height: 55% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  object-position: top !important;
+}
