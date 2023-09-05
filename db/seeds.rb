@@ -51,6 +51,14 @@ family1 = Family.new({name: "Famille MARTIN", email: "martin@yopmail.com"})
 family1.save!
 family2 = Family.new({name: "Famille LEGRAND", email: "legrand@yopmail.com"})
 family2.save!
+family3 = Family.new({name: "Famille LEGROS", email: "legros@yopmail.com"})
+family3.save!
+family4 = Family.new({name: "Famille LEPETIT", email: "lepetit@yopmail.com"})
+family4.save!
+family5 = Family.new({name: "Famille LEBEL", email: "lebel@yopmail.com"})
+family5.save!
+family6 = Family.new({name: "Famille LELOUCHE", email: "lelouche@yopmail.com"})
+family6.save!
 puts "Families created!"
 
 puts "Creating guests..."
@@ -64,6 +72,17 @@ guest4 = Guest.new({first_name: "Julien", last_name: "LEGRAND", gender: "male", 
 guest4.save!
 guest5 = Guest.new({first_name: "Thomas", last_name: "TOUSEUL", gender: "male", age_category: 30, witness: false, status: 1, family: family1, spouse: spouse2})
 guest5.save!
+
+guest6 = Guest.new({first_name: "Marc", last_name: "LEGROS", gender: "male", age_category: 30, witness: false, status: 1, family: family3, spouse: spouse1})
+guest6.save!
+guest7 = Guest.new({first_name: "Jeannot", last_name: "LEPETIT", gender: "male", age_category: 50, witness: false, status: 2, family: family4, spouse: spouse1})
+guest7.save!
+guest8 = Guest.new({first_name: "Marie", last_name: "LELOUCHE", gender: "female", age_category: 40, witness: true, status: 1, family: family6, spouse: spouse2})
+guest8.save!
+guest9 = Guest.new({first_name: "Julien", last_name: "LEBEL", gender: "male", age_category: 30, witness: false, status: 1, family: family5, spouse: spouse2})
+guest9.save!
+guest10 = Guest.new({first_name: "Thomas", last_name: "LEBEL", gender: "male", age_category: 30, witness: false, status: 1, family: family5, spouse: spouse2})
+guest10.save!
 puts "Guests created!"
 
 puts "Creating guest desks..."
