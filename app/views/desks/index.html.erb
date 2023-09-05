@@ -50,10 +50,10 @@
             <% end %>
           </div>
         </div>
-    
+
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit-<%= desk.id %>" aria-labelledby="offcanvasRightLabel">
           <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Edit Desk</h5>
+            <h5 id="offcanvasRightLabel">Edit Table</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
@@ -88,7 +88,7 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNewDesk" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel">New Desk</h5>
+        <h5 id="offcanvasRightLabel">New Table</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -119,19 +119,3 @@
   </div>
 
 </div>
-<%#
-<!-- <div class="card m-3">
-      <div class="card-header">
-        <%= desk.name %>
-      <%# </div> %>
-      <%# <div class="card-body">
-        <h5 class="card-title">Capacity: <%= desk.capacity %> <%# seats (<%= desk.shape %>
-        <%# <p class="card-text">Guest list of this table:</p>
-          <ul>
-            <% desk.guest_desks.each do |guest_desk| %>
-              <%# <li><%= guest_desk.guest.first_name %> <%# <%= guest_desk.guest.last_name %>
-            <%# <% end %>
-          <%# </ul>
-        <button type="button" class="btn btn-light"><%= link_to "Edit table", edit_wedding_desk_path(@wedding, desk) %>
-      <%# </div>
-    </div> --> %>
