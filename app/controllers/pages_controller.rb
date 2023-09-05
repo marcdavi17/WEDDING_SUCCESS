@@ -6,5 +6,12 @@ class PagesController < ApplicationController
 
   def dashboard
     @wedding = current_user.weddings.last
+    
+    @markers = [
+      {
+        lat: @wedding.latitude,
+        lng: @wedding.longitude
+      }
+    ]
   end
 end
