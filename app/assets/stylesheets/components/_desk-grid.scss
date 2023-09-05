@@ -1,0 +1,42 @@
+.desk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-right: 20px;
+}
+
+
+.desk-card {
+  display: flex;
+  border: $marronbis -1px solid;
+  border-radius: 6px;
+  margin: 10px;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 3px rgb(177, 177, 177);
+
+
+}
+
+.desk-card-left {
+
+  .desk-feature{
+    display: flex;
+    padding-top: 10px;
+  }
+
+}
+
+.desk-card-right {
+
+  .desk-gauge-container{
+    display: flex;
+    padding-top: 10px;
+  }
+
+  .desk-cta{
+    display: flex;
+    padding-top: 50px;
+    text-decoration-line: none;
+  }
+
+}
