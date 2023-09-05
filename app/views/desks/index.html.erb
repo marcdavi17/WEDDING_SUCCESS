@@ -3,39 +3,71 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" <%= link_to "All tables", wedding_desks_path(@wedding) %></a>
+          <%= link_to "All tables", wedding_desks_path(@wedding), class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" <%= link_to "Seating tables", sitting_plan_wedding_path(@wedding) %></a>
+          <%= link_to "Seating tables", sitting_plan_wedding_path(@wedding), class: "nav-link" %>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container m-3">
-
-  <h1>All my tables</h1>
-
-  <% @desks.each do |desk| %>
-    <div class="card m-3">
-      <div class="card-header">
-        <%= desk.name %>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Capacity: <%= desk.capacity %> seats (<%= desk.shape %>)</h5>
-        <p class="card-text">Guest list of this table:</p>
-          <ul>
-            <% desk.guest_desks.each do |guest_desk| %>
-              <li><%= guest_desk.guest.first_name %> <%= guest_desk.guest.last_name %></li>
+<div class="container">
+  <div class="m3">
+    <h1>All my tables</h1>
+    <div class="desk-grid">
+      <% @desks.each do |desk| %>
+        <div class="desk-card">
+          <div class="desk-card-left">
+            <h3><%= desk.name %></h3>
+            <div class="desk-feature">
+              <%= image_tag "table.svg" %>
+              <p><%= desk.shape.capitalize %> table</p>
+            </div>
+            <div class="desk-feature">
+              <%= image_tag "groupe.svg" %>
+              <p>Max. <%= desk.capacity %> guests</p>
+            </div>
+          </div>
+          <div class="desk-card-right">
+            <div>
+              <div class="desk-gauge-container">
+                <div class="desk-gauge">
+                  <% desk.taken_seats.times do  %>
+                    <div class="desk-gauge-item taken"></div>
+                  <% end %>
+                  <% desk.remaining_seats.times do  %>
+                    <div class="desk-gauge-item"></div>
+                  <% end %>
+                </div>
+                <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
+              </div>
+            </div>
+            <%= link_to edit_wedding_desk_path(@wedding, desk), class: "desk-cta" do %>
+              See guests list <%= image_tag "arrow.svg" %>
             <% end %>
-          </ul>
-        <button type="button" class="btn-1 btn-light"><%= link_to "Edit table", edit_wedding_desk_path(@wedding, desk) %></button>
-      </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-<button type="button" class="btn-2 btn-block"><%= link_to "Add a table", new_wedding_desk_path(@wedding) %></button>
+    <button type="button" class="btn btn-info"><%= link_to "Add a table", new_wedding_desk_path(@wedding) %></button>
+  </div>
 
 </div>
-
+<%#
+<!-- <div class="card m-3">
+      <div class="card-header">
+        <%= desk.name %>
+      <%# </div> %>
+      <%# <div class="card-body">
+        <h5 class="card-title">Capacity: <%= desk.capacity %> <%# seats (<%= desk.shape %>
+        <%# <p class="card-text">Guest list of this table:</p>
+          <ul>
+            <% desk.guest_desks.each do |guest_desk| %>
+              <%# <li><%= guest_desk.guest.first_name %> <%# <%= guest_desk.guest.last_name %>
+            <%# <% end %>
+          <%# </ul>
+        <button type="button" class="btn btn-light"><%= link_to "Edit table", edit_wedding_desk_path(@wedding, desk) %>
+      <%# </div>
+    </div> --> %>
