@@ -25,7 +25,7 @@
           <div class="desk-card-left">
             <h3><%= desk.name %></h3>
             <div class="desk-feature">
-              <%= image_tag "table.svg" %>
+              <%= image_tag "#{desk.shape.downcase}.svg" %>
               <p><%= desk.shape.capitalize %> table</p>
             </div>
             <div class="desk-feature">
@@ -44,7 +44,11 @@
                     <div class="desk-gauge-item"></div>
                   <% end %>
                 </div>
-                <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
+                <% if desk.remaining_seats.zero? %>
+                  <p class="desk-gauge-info"><strong>COMPLETE</strong></p>
+                <% else %>
+                  <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
+                <% end %>
               </div>
             </div>
 
@@ -59,37 +63,36 @@
     </div>
 
 
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNewDesk" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel">New Table</h5>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNewDesk" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div class="card">
-          <div class="card-body">
+  </div>
+    <div class="offcanvas-body">
+      <div class="desk-show-title">
+        <h5 id="offcanvasRightLabel">New Table</h5>
             <%= simple_form_for [@wedding, @desk] do |f| %>
               <%= @desk.errors.full_messages.to_sentence %>
-              <div class="mb-3">
+          <div class="desk-card">
                 <%= f.label :name, "Table Name:" %>
-                <%= f.text_field :name, class: "form-control" %>
-              </div>
-              <div class="mb-3">
-                <%= f.label :capacity, "Table Capacity:" %>
-                <%= f.number_field :capacity, class: "form-control", min: 6, max: 12 %>
-              </div>
-              <div class="mb-3">
-                <%= f.label :shape, "Table Shape:" %>
-                <%= f.select :shape, options_for_select([['Square', 'square'], ['Rectangle', 'rectangle']]), {}, class: "form-control" %>
-              </div>
-              <div class="d-grid gap-2">
-                <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
-              </div>
-            <% end %>
+                <%= f.text_field :name, class: "desk-features" %>
           </div>
+          <div class="desk-card">
+                <%= f.label :capacity, "Table Capacity:" %>
+                <%= f.number_field :capacity, class: "desk-features", min: 6, max: 12 %>
+          </div>
+          <div class="desk-card">
+                <%= f.label :shape, "Table Shape:" %>
+                <%= f.select :shape, options_for_select([['Round', 'round'], ['Rectangular', 'rectangular']]), {}, class: "desk-features" %>
+          </div>
+          <div class="d-grid gap-2">
+                <%= f.submit "Submit", class: "tab" %>
+          </div>
+            <% end %>
         </div>
       </div>
     </div>
-  </div>
+</div>
+
+</div>
 
 </div>
