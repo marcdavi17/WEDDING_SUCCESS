@@ -1,0 +1,24 @@
+<div class="offcanvas offcanvas-end <%= "show" if family.id == 30 %>" tabindex="-1" id="offcanvasAdd-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel"></h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+      <h3>Add a new guest to <%= family.name %>'s group</h3>
+
+      <%= simple_form_for([wedding, Guest.new]) do |f| %>
+        <%= f.input :gender, as: :radio_buttons, collection: Guest::GENDER, label: "What's the gender of your new guest?",
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'} %>
+        <%= f.input :first_name, label: "What's their first name?", placeholder: "Type the first name" %>
+        <%= f.input :last_name, label: "What's their family name ?", placeholder: "Type the family name", input_html: {value: (family.family? ? family.name : "")} %>
+        <%= f.association :spouse, as: :radio_buttons, label_method: :first_name, label: "Which spouse is inviting?" %>
+        <%= f.input :family_id, input_html: {value: family.id}, as: :hidden %>
+        <%= f.input :witness %>
+        <%= f.submit %>
+      <% end %>
+
+  </div>
+</div>

@@ -61,6 +61,7 @@
                 <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-pen"></i></span>
               </div>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
+
               <div class="offcanvas-header">
                 <h5 id="offcanvasRightLabel">Edit Group</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -85,28 +86,7 @@
                 </div>
               </div>
             </div>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAdd-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
-              <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">Add Guest</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <div class="card-body">
-
-                  <%= simple_form_for([@wedding, Guest.new]) do |f| %>
-                    <%= f.input :first_name %>
-                    <%= f.input :last_name %>
-                    <%= f.input :gender, collection: Guest::GENDER %>
-                    <%= f.input :witness %>
-                    <%= f.label :name, "Invited by:" %>
-                    <%= f.association :spouse, as: :select, label_method: :first_name %>
-                    <%= f.input :family_id, input_html: {value: family.id}, as: :hidden %>
-                    <%= f.submit %>
-                  <% end %>
-
-                </div>
-              </div>
-            </div>
+            <%= render "add_guest", family: family, wedding: @wedding %>
           </div>
 
           <ul class="hide-last-element">
