@@ -1,10 +1,11 @@
 <div class="container dashboard-grid">
-  <div class="div">
+  <div class="div" data-controller="countdown" data-countdown-date-value="<%= @wedding.countdown_date %>">
     <h2>Wedding Date</h2>
     <div class="date">
+      <p id="demo"></p>
       <p class="ymd">Sept 15, 2023</p>
-      <p class="countdown">11 Days Left</p>
-      <p class="place"><%= @wedding.city_hall %></p>
+      <p class="place"> <i class="fa-solid fa-location-dot"> </i><%= @wedding.city_hall %></p>
+    </div>
   </div>
 
   <div class="div">
@@ -20,7 +21,7 @@
   <div class="div">
     <h2>Total Guests</h2>
     <div class="stats-card">
-      <p class="stat">145</p>
+      <p class="stat">50</p>
       <p class="stat-info">Guests</p>
     </div>
   </div>
