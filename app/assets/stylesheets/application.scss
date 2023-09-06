@@ -36,6 +36,13 @@
   gap: 2rem;
 }
 
+.dashboard-grid-three {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 2rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
