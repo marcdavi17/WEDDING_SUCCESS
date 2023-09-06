@@ -6,7 +6,7 @@
           <%= link_to "All guests by groups", wedding_families_path(@wedding), class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "All guests by persons", guests_path(@wedding), class: "nav-link" %>
+          <%= link_to "All guests by persons", wedding_guests_path(@wedding), class: "nav-link" %>
         </li>
       </ul>
     </div>
@@ -29,10 +29,12 @@
           <div class="card-body">
             <%= simple_form_for([@wedding, @family]) do |f| %>
               <div class="mb-3">
-                <%= f.input :name, class: "form-control" %>
+                <%= f.label :name, "Group Name:" %>
+                <%= f.text_field :name, class: "form-control" %>
               </div>
               <div class="mb-3">
-                <%= f.input :email, class: "form-control" %>
+                <%= f.label :name, "Contact email:" %>
+                <%= f.text_field :email, class: "form-control" %>
               </div>
               <div class="mb-3">
                 <%= f.label :guests, "Guests", class: "form-label" %>
@@ -53,9 +55,9 @@
       <div class="card growing p-0 m-3 col-lg-3 col-md-4 col-sm-6">
         <div class="card-body">
           <div class="d-flex justify-content-between">
-            <h5 class="card-title"><%= family.name %><span>(<%= family.guests.count %> persons)</span></h5>
+            <h5 class="card-title"><%= family.name %><span> (<%= family.guests.count - 1 %> persons)</span></h5>
               <div class="d-flex justify-content-between">
-                <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-circle-plus"></i></span>
+                <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-circle-plus"></i></span>
                 <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-pen"></i></span>
               </div>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
@@ -83,13 +85,36 @@
                 </div>
               </div>
             </div>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAdd-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
+              <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Add Guest</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="card-body">
+
+                  <%= simple_form_for([@wedding, Guest.new]) do |f| %>
+                    <%= f.input :first_name %>
+                    <%= f.input :last_name %>
+                    <%= f.input :gender, collection: Guest::GENDER %>
+                    <%= f.input :witness %>
+                    <%= f.label :name, "Invited by:" %>
+                    <%= f.association :spouse, as: :select, label_method: :first_name %>
+                    <%= f.input :family_id, input_html: {value: family.id}, as: :hidden %>
+                    <%= f.submit %>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
           </div>
+
           <ul class="hide-last-element">
             <% family.guests.each do |guest| %>
               <% if guest.persisted? %>
                 <li>
                   <%= guest.first_name %> <%= guest.last_name %>
-                  <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), guest_path(guest, wedding_id: @wedding.id),
+                  <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), wedding_guest_path(@wedding.id, guest),
                               data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
                 </li>
               <% end %>
