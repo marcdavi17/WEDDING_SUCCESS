@@ -106,12 +106,12 @@
 
 .btn_new {
   border-radius: 50px;
-  padding-left: 35px;
-  padding-right: 35px;
+  justify-content: center;
+  padding: 10px 35px;
   color: antiquewhite;
   background-color: $marronbis;
-  margin: 10px;
-  font-size: small;
+  font-size: 14px;
+  margin-top: 20px;
 }
 
 .new_h3 {
