@@ -1,5 +1,6 @@
 class DesksController < ApplicationController
   def index
+    @desk = Desk.new # Needed to instantiate the form_with
     @wedding = Wedding.find(params[:wedding_id])
     @desks = @wedding.desks
   end
@@ -52,7 +53,7 @@ class DesksController < ApplicationController
       # Handle errors
     end
   end
-  
+
   private
 
   def desk_params
