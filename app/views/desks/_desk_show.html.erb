@@ -1,0 +1,64 @@
+<div class="desk-show offcanvas offcanvas-end <%= "show" if params["desk_id"].present? && params["desk_id"].to_i == desk.id %>" tabindex="-1" id="offcanvasEdit-<%= desk.id %>" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body ">
+    <div class="desk-show-top">
+      <span class="tab"><%= desk.status %></span>
+      <%= link_to edit_wedding_desk_path(wedding, desk) do %>
+        <i class="fa-solid fa-pencil"></i>
+      <% end %>
+    </div>
+    <div class="desk-show-title">
+      <div class="desk-card-left">
+        <h3><%= desk.name %></h3>
+        <div class="desk-features">
+          <div class="desk-feature">
+            <%= image_tag "table.svg" %>
+            <p><%= desk.shape.capitalize %> table</p>
+          </div>
+          <div class="desk-feature">
+            <%= image_tag "groupe.svg" %>
+            <p>Max. <%= desk.capacity %> guests</p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="desk-gauge-container">
+          <div class="desk-gauge">
+            <% desk.taken_seats.times do  %>
+              <div class="desk-gauge-item taken"></div>
+            <% end %>
+            <% desk.remaining_seats.times do  %>
+              <div class="desk-gauge-item"></div>
+            <% end %>
+          </div>
+          <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
+        </div>
+      </div>
+    </div>
+    <div class="desk-show-guests">
+      <p>Your <%= desk.guests.count %> guests around this table</p>
+      <ul class="desk-guests-list">
+        <% desk.guests.sort_by(&:last_name).each do |guest| %>
+          <li>
+            <%= image_tag "#{guest.gender.downcase}.png" %>
+            <p><strong><%= guest.first_name %></strong> <%= guest.last_name %> (<%= guest.family.name %>'s group) - invited by <%= guest.spouse.first_name %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <% unless desk.status == "COMPLETE" %>
+      <p><strong>Add a guest to this table</strong></p>
+      <%= simple_form_for [wedding, GuestDesk.new] do |f| %>
+        <%= f.input :desk_id, as: :hidden, input_html: {value: desk.id} %>
+        <%= f.input :guest_id, as: :select, collection: wedding.not_affected_guests, label_method: :fullname, prompt: "Please select a guest to add at this table", label: false %>
+        <button type="submit">GO</button>
+      <% end %>
+
+    <% end %>
+
+  </div>
+</div>

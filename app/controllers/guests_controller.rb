@@ -17,6 +17,13 @@ class GuestsController < ApplicationController
     redirect_to action: "index"
   end
 
+  def destroy
+    @wedding = Wedding.find(params[:wedding_id])
+    @guest = Guest.find(params[:id])
+    @guest.destroy
+    redirect_to wedding_families_path(@wedding)
+  end
+
   private
 
   def guest_params
