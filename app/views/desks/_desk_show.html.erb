@@ -55,7 +55,7 @@
       <%= simple_form_for [wedding, GuestDesk.new] do |f| %>
         <%= f.input :desk_id, as: :hidden, input_html: {value: desk.id} %>
         <%= f.input :guest_id, as: :select, collection: wedding.not_affected_guests, label_method: :fullname, prompt: "Please select a guest to add at this table", label: false %>
-        <button type="submit">GO</button>
+        <button type="submit" class="tab">GO</button>
       <% end %>
 
     <% end %>

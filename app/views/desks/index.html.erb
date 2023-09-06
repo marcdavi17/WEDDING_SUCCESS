@@ -16,6 +16,7 @@
 <div class="container">
   <div class="m3">
     <h1>All my tables</h1>
+    <%= link_to "Add a table", new_wedding_desk_path(@wedding), class: "btn btn-3", aria_controls: "offcanvasRight", data: { bs_toggle: "offcanvas", bs_target: "#offcanvasNewDesk" } %>
     <div class="desk-grid">
       <% @desks.each do |desk| %>
         <div class="desk-card">
@@ -55,7 +56,7 @@
       <% end %>
     </div>
 
-    <%= link_to "Add a table", new_wedding_desk_path(@wedding), class: "btn btn-info", aria_controls: "offcanvasRight", data: { bs_toggle: "offcanvas", bs_target: "#offcanvasNewDesk" } %>
+
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNewDesk" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
