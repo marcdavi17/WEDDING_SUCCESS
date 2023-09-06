@@ -12,8 +12,8 @@
   border-radius: 6px;
   margin: 10px;
   justify-content: space-around;
-  background-color: whitesmoke;
-  box-shadow: 3px 3px 3px rgb(177, 177, 177);
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   &.active {
     border: 2px solid $marronbis;
   }

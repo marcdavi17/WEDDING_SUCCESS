@@ -8,3 +8,5 @@ pin "@popperjs/core", to: "popper.js", preload: true
 pin "abyme", to: "https://ga.jspm.io/npm:abyme@0.7.4/dist/abyme.modern.mjs"
 pin "@hotwired/turbo", to: "https://ga.jspm.io/npm:@hotwired/turbo@7.3.0/dist/turbo.es2017-esm.js"
 pin "@rails/actioncable/src", to: "https://ga.jspm.io/npm:@rails/actioncable@7.0.7/src/index.js"
+pin "mapbox-gl", to: "https://ga.jspm.io/npm:mapbox-gl@2.15.0/dist/mapbox-gl.js"
+pin "process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process-production.js"

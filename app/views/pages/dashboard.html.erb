@@ -4,14 +4,14 @@
     <div class="date">
       <p class="ymd">Sept 15, 2023</p>
       <p class="countdown">11 Days Left</p>
-    </div>
+      <p class="place"><%= @wedding.city_hall %></p>
   </div>
 
   <div class="div">
     <h2>Spouses</h2>
     <div class="spouse-card">
       <p class="pro">Ms & Mr</p>
-      <p class="name">Lenny D & Vince T</p>
+      <p class="name">Lucie Petit & Jean Legros</p>
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@
           <img src="<%= image_path "costumeb.jpg" %>" class="d-block dress-img-carousel" alt="...">
         </div>
         <div class="carousel-item dashboard-carousel">
-          <img src="<%= image_path "escarpin.jpg" %>" class="d-block dress-img-carousel" alt="...">
+          <img src="<%= image_path "escarpinb.jpg" %>" class="d-block dress-img-carousel" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselDashboard" data-bs-slide="prev">
@@ -49,4 +49,11 @@
       </button>
     </div>
   </div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
 </div>

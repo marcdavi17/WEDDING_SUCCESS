@@ -3,6 +3,7 @@ class DesksController < ApplicationController
     @desk = Desk.new # Needed to instantiate the form_with
     @wedding = Wedding.find(params[:wedding_id])
     @desks = @wedding.desks
+    @desk = Desk.new
   end
 
   def new
