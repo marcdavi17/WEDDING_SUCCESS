@@ -16,7 +16,7 @@ class GuestDesksController < ApplicationController
     @guest_desk = GuestDesk.new(guest_desk_params)
     # @desk.wedding = current_user.weddings.last
     if @guest_desk.save
-      redirect_to sitting_plan_wedding_path(@wedding)
+      redirect_to wedding_desks_path(@wedding, desk_id: @guest_desk.desk_id)
     else
       render :new
     end

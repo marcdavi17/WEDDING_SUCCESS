@@ -33,9 +33,9 @@ weddingaccess1.save!
 puts "Weddings accesses created!"
 
 puts "Creating spouses..."
-spouse1 = Spouse.new({first_name: "Jean", last_name: "LEGROS", gender: "male", wedding: wedding1})
+spouse1 = Spouse.new({first_name: "Jean", last_name: "LEGROS", gender: "man", wedding: wedding1})
 spouse1.save!
-spouse2 = Spouse.new({first_name: "Lucie", last_name: "PETIT", gender: "female", wedding: wedding1})
+spouse2 = Spouse.new({first_name: "Lucie", last_name: "PETIT", gender: "woman", wedding: wedding1})
 spouse2.save!
 puts "Spouses created!"
 
