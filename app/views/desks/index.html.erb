@@ -50,37 +50,8 @@
             <% end %>
           </div>
         </div>
+        <%= render "desk_show", desk: desk, wedding: @wedding %>
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit-<%= desk.id %>" aria-labelledby="offcanvasRightLabel">
-          <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Edit Table</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <div class="card">
-              <div class="card-body">
-                <%= simple_form_for [@wedding, desk] do |f| %>
-                  <%= desk.errors.full_messages.to_sentence %>
-                  <div class="mb-3">
-                    <%= f.label :name, "Table Name:" %>
-                    <%= f.text_field :name, class: "form-control" %>
-                  </div>
-                  <div class="mb-3">
-                    <%= f.label :capacity, "Table Capacity:" %>
-                    <%= f.number_field :capacity, class: "form-control", min: 6, max: 12 %>
-                  </div>
-                  <div class="mb-3">
-                    <%= f.label :shape, "Table Shape:" %>
-                    <%= f.select :shape, options_for_select([['Square', 'square'], ['Rectangle', 'rectangle']]), {}, class: "form-control" %>
-                  </div>
-                  <div class="d-grid gap-2">
-                    <%= f.submit "Submit", class: "btn btn-primary btn-block" %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
       <% end %>
     </div>
 
