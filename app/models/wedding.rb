@@ -13,6 +13,7 @@ class Wedding < ApplicationRecord
     # debugger
     year, month, day_num = day.to_s.split('-')
     "#{Date::MONTHNAMES[month.to_i].first(3).capitalize} #{day_num}, #{year} 00:00:00"
+  end
 
   def not_affected_guests
     assigned_guests = guests.select do |guest|
