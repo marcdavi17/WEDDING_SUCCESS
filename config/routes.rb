@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     resources :families
     resources :desks
     resources :guest_desks
+    resources :guests, except: :delete
     member do
-      resources :guests, except: :delete
       post 'assign_guests'
       get 'guest_desks/affect', to: 'guest_desks#affect'
       get "sitting_plan", to: "weddings#sitting_plan"
