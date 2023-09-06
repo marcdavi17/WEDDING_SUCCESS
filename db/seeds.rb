@@ -23,7 +23,7 @@ user1.save!
 puts "Users created!"
 
 puts "Creating weddings..."
-wedding1 = Wedding.new({day: (Date.today + 30.days), city_hall: "Mairie de La Ciotat"})
+wedding1 = Wedding.new({day: (Date.today + 9.days), city_hall: "Mairie de La Ciotat"})
 wedding1.save!
 puts "Weddings created!"
 
