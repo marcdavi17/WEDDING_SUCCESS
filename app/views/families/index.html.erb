@@ -87,13 +87,15 @@
           <ul class="hide-last-element">
             <% family.guests.each do |guest| %>
               <% if guest.persisted? %>
-                  <li><%= guest.first_name %> <%= guest.last_name %>
-                 <%= link_to "Delete", guest_path(guest, wedding_id: @wedding.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-
-                  </li>
-                <% end %>
+                <li>
+                  <%= guest.first_name %> <%= guest.last_name %>
+                  <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), guest_path(guest, wedding_id: @wedding.id),
+                              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                </li>
               <% end %>
+            <% end %>
           </ul>
+
         </div>
       </div>
     <% end %>
