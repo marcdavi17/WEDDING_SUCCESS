@@ -14,10 +14,16 @@
   justify-content: space-around;
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  &.active {
-    border: 2px solid $marronbis;
-  }
+  // &.active {
+  //   border: 2px solid $marronbis;
+  // }
 
+}
+
+.desk-card:hover {
+  border: 3px solid $marronbis;
+  background:#fafafa;
+  color: $marronbis;
 }
 
 .desk-card-left {
