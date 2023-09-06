@@ -2,16 +2,19 @@
   background-color: rgb(232, 190, 121);
   padding: 3.5em;
   border-radius: 1em;
-  text-align: center;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
     .ymd {
-    font-size: 55px;
-    font-weight: 900;
-    letter-spacing: -1px;
-    margin-bottom: 10px;
+      font-size: 58px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      margin-bottom: 0;
     }
     .place {
-    font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 1.4rem;
+      margin: 0;
     }
     i.fa-solid {
     margin-right: 10px;

@@ -1,40 +1,57 @@
-<div class="offcanvas offcanvas-end <%= "show" if family.id == 30 %>" tabindex="-1" id="offcanvasAdd-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
+<div class="offcanvas offcanvas-end <%= "show" if family.id == 43 %>" tabindex="-1" id="offcanvasAdd-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 id="offcanvasRightLabel"></h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-      <h3>Add a new guest to <%= family.name %>'s group</h3>
+    <h3 class="new_h3">Add a new guest to <%= family.name %>'s group</h3>
 
-      <%= simple_form_for([wedding, Guest.new]) do |f| %>
-        <fieldset class="mb-3 radio_buttons optional guest_gender">
-          <legend class="col-form-label pt-0">What's the gender of your new guest?</legend>
-          <input type="hidden" name="guest[gender]" value="" autocomplete="off">
+    <%= simple_form_for([wedding, Guest.new]) do |f| %>
+      <fieldset class="mb-3 radio_buttons optional guest_gender">
+        <legend class="col-form-label pt-0 legend">What's the gender of your new guest?</legend>
+        <input type="hidden" name="guest[gender]" value="" autocomplete="off">
+        <div class="selector-wrapper1">
           <% Guest::GENDER.each do |gender| %>
             <div class="form-check">
-              <input class="form-check-input radio_buttons optional" type="radio" value="<%= gender %>" name="guest[gender]" id="guest_gender_<%= gender %>_<%= family.id %>">
+              <input class="form-check-input radio_buttons optional tag-input1" type="radio" value="<%= gender %>" name="guest[gender]" id="guest_gender_<%= gender %>_<%= family.id %>">
               <label class="form-check-label collection_radio_buttons" for="guest_gender_<%= gender %>_<%= family.id %>"><%= image_tag "#{gender.downcase}.png" %></label>
             </div>
           <% end %>
-        </fieldset>
+        </div>
+      </fieldset>
 
-        <%= f.input :first_name, label: "What's their first name?", placeholder: "Type the first name" %>
-        <%= f.input :last_name, label: "What's their family name ?", placeholder: "Type the family name", input_html: {value: (family.family? ? family.name : "")} %>
-        <%#= f.association :spouse, as: :radio_buttons, label_method: :first_name, label: "Which spouse is inviting?" %>
-        <fieldset class="mb-3 radio_buttons required guest_spouse">
-          <legend class="col-form-label pt-0">Which spouse is inviting? <abbr title="required">*</abbr></legend>
-          <input type="hidden" name="guest[spouse_id]" value="" autocomplete="off">
+      <%= f.input :first_name, label: "What's their first name?", placeholder: "Type the first name", input_html: { class: "field_input" },
+                  label_html: {
+                    class: 'fw-bolder'
+                  } %>
+      <%= f.input :last_name, label: "What's their family name ?", placeholder: "Type the family name", input_html: {value: (family.family? ? family.name : ""), class: "field_input"},
+                  label_html: {
+                    class: 'fw-bolder'
+                  } %>
+      <%#= f.association :spouse, as: :radio_buttons, label_method: :first_name, label: "Which spouse is inviting?" %>
+      <fieldset class="mb-3 radio_buttons required guest_spouse">
+        <legend class="col-form-label pt-0 legend fw-bolder">Which spouse is inviting? <abbr title="required">*</abbr></legend>
+        <input type="hidden" name="guest[spouse_id]" value="" autocomplete="off">
+        <div class="selector-wrapper2">
           <% wedding.spouses.each do |spouse| %>
             <div class="form-check">
-              <input class="form-check-input radio_buttons required" type="radio" value="<%= spouse.id %>" name="guest[spouse_id]" id="guest_spouse_id_<%= spouse.id %>_<%= family.id %>">
-              <label class="form-check-label collection_radio_buttons" for="guest_spouse_id_<%= spouse.id %>_<%= family.id %>"><%= spouse.first_name %></label>
+              <input class="form-check-input radio_buttons required tag-input2" type="radio" value="<%= spouse.id %>" name="guest[spouse_id]" id="guest_spouse_id_<%= spouse.id %>_<%= family.id %>">
+              <label class="form-check-label collection_radio_buttons legend" for="guest_spouse_id_<%= spouse.id %>_<%= family.id %>"><%= spouse.first_name %></label>
             </div>
           <% end %>
-        </fieldset>
-        <%= f.input :family_id, input_html: {value: family.id}, as: :hidden %>
-        <%= f.input :witness, input_html: {id: "guest_witness_#{family.id}", label_html: {for: "guest_witness_#{family.id}" }} %>
-        <%= f.submit %>
-      <% end %>
+        </div>
+      </fieldset>
+      <%= f.input :family_id, input_html: {value: family.id}, as: :hidden %>
+      <%= f.input :witness,
+                  label_html: {
+                    class: 'fw-bolder'
+                  },
+                  input_html: {
+                    id: "guest_witness_#{family.id}",
+                    class: "toggle"
+                  } %>
 
+      <button type="submit", class="btn_new fw-bolder"><i class="fa-solid fa-plus"></i> Add Guest to <%= family.name %>'s group</button>
+    <% end %>
   </div>
 </div>
