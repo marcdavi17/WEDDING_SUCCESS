@@ -52,3 +52,8 @@
   font-family: "Roboto", sans-serif;
   color: #333;
 }
+
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
