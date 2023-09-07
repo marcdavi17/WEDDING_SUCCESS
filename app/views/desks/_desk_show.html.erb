@@ -15,7 +15,7 @@
         <h3><%= desk.name %></h3>
         <div class="desk-features">
           <div class="desk-feature">
-            <%= image_tag "table.svg" %>
+            <%= image_tag "#{desk.shape.downcase}.svg" %>
             <p><%= desk.shape.capitalize %> table</p>
           </div>
           <div class="desk-feature">
@@ -34,7 +34,13 @@
               <div class="desk-gauge-item"></div>
             <% end %>
           </div>
-          <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
+
+          <% if desk.remaining_seats.zero? %>
+            <p class="desk-gauge-info"><strong>COMPLETE</strong></p>
+          <% else %>
+            <p class="desk-gauge-info"><strong><%= desk.remaining_seats %></strong> seats left</p>
+          <% end %>
+
         </div>
       </div>
     </div>
@@ -53,10 +59,12 @@
     <% unless desk.status == "COMPLETE" %>
       <p><strong>Add a guest to this table</strong></p>
       <%= simple_form_for [wedding, GuestDesk.new] do |f| %>
+      <div class="desk-add-guest">
         <%= f.input :desk_id, as: :hidden, input_html: {value: desk.id} %>
         <%= f.input :guest_id, as: :select, collection: wedding.not_affected_guests, label_method: :fullname, prompt: "Please select a guest to add at this table", label: false %>
-        <button type="submit" class="tab">GO</button>
+        <button type="submit" class="tab">+</button>
       <% end %>
+      </div>
 
     <% end %>
 

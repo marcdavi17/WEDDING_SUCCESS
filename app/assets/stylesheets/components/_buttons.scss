@@ -32,3 +32,26 @@
   // font-weight: lighter;
   transition: opacity 0.3s ease;
 }
+
+.desk-btn-3 {
+  margin-right: 1%;
+  color: white;
+  background-color: $marronbis;
+  border: 1px solid $marronbis;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 5%;
+  // font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+.desk-btn-3:hover {
+  color: $marronbis;
+  background-color: white;
+  border: 1px solid $marronbis;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 5%;
+  // font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
