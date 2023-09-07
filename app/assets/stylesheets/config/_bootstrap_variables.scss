@@ -7,7 +7,7 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
-$body-bg:                $background-gray;
+$body-bg:                white;
 $font-size-base:         1rem;
 
 // Colors
@@ -23,7 +23,5 @@ $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
-body {
-  background-color: #f0cf99!important;
-}
+
 // Override other variables below!

@@ -51,6 +51,7 @@
   font-size: 2em;
   font-family: "Playfair Display";
   color: #763913;
+  span { font-size: 42px; }
 }
 
 input:focus {
@@ -60,4 +61,8 @@ input:focus {
 
 .square {
   aspect-ratio: 1 / 1;
+}
+
+.orange {
+  color: $orange;
 }

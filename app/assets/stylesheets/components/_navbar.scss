@@ -5,16 +5,20 @@
   height: 100vh;
   overflow: hidden;
   width: 260px;
+  box-shadow: 4px 0px 16px rgba(0,0,0,0.2);
   a {
     color: $gray;
     text-align: center;
   }
-  .nav a:hover {
+  .nav a:hover, .nav-pills .nav-link.active:hover {
     background-color: $orange;
-    color: black;
+    color: white;
+    p { color: white; }
   }
   .nav-pills .nav-link.active {
-    background-color: #d68c1d;
+    background-color: $marronbis;
+    color: white;
+    p { color: white }
   }
 
   #sidebar-logo{

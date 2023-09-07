@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
@@ -11,12 +11,12 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 
 <div class="container">
   <div class="m3">
 <div class="d-flex justify-content-between">
-    <h1>All my tables</h1>
+    <h1 class="beautiful-heading"><span class="orange"><%= @desks.count %></span> wedding tables</h1>
     <%= link_to "+", new_wedding_desk_path(@wedding), class: "btn desk-btn-3", aria_controls: "offcanvasRight", data: { bs_toggle: "offcanvas", bs_target: "#offcanvasNewDesk" } %>
     </div>
     <div class="desk-grid">
