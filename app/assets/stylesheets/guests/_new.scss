@@ -1,32 +1,125 @@
-.category-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.category-item {
-  flex: 0 0 30%;
-}
-
-.category-selector {
+.tag-input1 {
   position: absolute;
   transform: scale(0);
 }
 
-.category-selector + label {
-  display: block;
-  cursor: pointer;
-  box-sizing: border-box;
+.selector-wrapper1 {
+  display: flex;
   width: 100%;
-  font-size: 12px;
-  text-align: left;
-  padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;
-  background-color: white;
+  align-items: center;
+
+  label {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+  }
 }
 
-.category-selector:checked + label {
-  color: white !important;
-  background-color: red;
+.tag-input1:checked + label {
+  border-color: $marronbis;
+}
+
+.tag-input2 {
+  position: absolute;
+  transform: scale(0);
+}
+
+.selector-wrapper2 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  label {
+    width: 80px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 16px rgba(0,0,0,0.2);
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+  }
+}
+
+.tag-input2:checked + label {
+  border-color: $marronbis;
+}
+
+.toggle {
+  position: absolute;
+  transform: scale(0);
+}
+
+.toggle + label {
+  position: relative;
+  display: inline-block;
+  padding-left: 40px;
+}
+
+.toggle + label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 36px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #EAEAEA;
+  border-radius: 50rem;
+}
+
+.toggle:checked + label::before {
+  background-color: #1EDD88;
+}
+
+.toggle + label::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.2s ease;
+}
+
+.toggle:checked + label::after {
+  left: 18px;
+}
+
+.field_input {
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid $marronbis;
+}
+
+.btn_new {
+  border-radius: 50px;
+  padding-left: 35px;
+  padding-right: 35px;
+  color: antiquewhite;
+  background-color: $marronbis;
+  margin: 10px;
+  font-size: small;
+}
+
+.new_h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.legend {
+  font-weight: bold;
+  font-size: 0.9rem;
 }
