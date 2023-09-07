@@ -57,20 +57,13 @@
              data-sal-delay="<%= i * 50 %>">
         <div class="card-body">
           <div class="d-flex justify-content-between">
-            
+
             <h5 class="card-title"><%= family.name %> <span class="space"><%= family.guests.count %> persons</span></h5>
-              <div class="d-flex justify-content-between">
-                <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-circle-plus circlepink"></i></span>
-                <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-pen pengolden"></i></span>
-
-            <h5 class="card-title"><%= family.name %><span> (<%= family.guests.count - 1 %> persons)</span></h5>
-              <div class="d-flex justify-content-between">
-                <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-circle-plus"></i></span>
-                <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-pen"></i></span>
-
-              </div>
+            <div class="d-flex justify-content-between">
+              <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdd-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-circle-plus circlepink"></i></span>
+              <span class="cursor-pointer m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEdit-<%= family.id %>" aria-controls="offcanvasRight"><i class="fa-solid fa-pen pengolden"></i></span>
+            </div>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEdit-<%= family.id %>" aria-labelledby="offcanvasRightLabel">
-
               <div class="offcanvas-header">
                 <h5 id="offcanvasRightLabel">Edit Group</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -98,26 +91,16 @@
             <%= render "add_guest", family: family, wedding: @wedding %>
           </div>
 
-          <ul class="hide-last-element deletebullet">
-
-
           <ul class="hide-last-element">
-
             <% family.guests.each do |guest| %>
               <% if guest.persisted? %>
                 <li>
                   <%= guest.first_name %> <%= guest.last_name %>
-
-                  <%= link_to raw('<i class="fa-regular fa-circle-xmark guestcroix"></i>'), guest_path(guest, wedding_id: @wedding.id),
-
-                  <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>'), wedding_guest_path(@wedding.id, guest),
-
-                              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                  <%= link_to raw('<i class="fa-regular fa-circle-xmark guestcroix"></i>'), wedding_guest_path(@wedding, guest), data: { turbo_method: :delete } %>
                 </li>
               <% end %>
             <% end %>
           </ul>
-
         </div>
       </div>
     <% end %>
