@@ -29,9 +29,9 @@
         <% end %>
       </li>
     </ul>
-    <div class="d-flex align-items-center justify-content-center">
-      <%= image_tag "profile.jpg", class: "rounded-circle me-2", width: "32px", height: "32px" %>
-      
+    <div class="d-flex align-items-center justify-content-around">
+      <%= image_tag "https://images.pexels.com/photos/5876695/pexels-photo-5876695.jpeg?auto=compress&cs=tinysrgb&w=800", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
       <p class="p-2"><%= link_to ('<i class="fa-solid fa-right-from-bracket"></i>').html_safe, destroy_user_session_path, data: { turbo_method: :delete }  %></p>
     </div>
   </div>

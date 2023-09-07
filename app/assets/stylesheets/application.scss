@@ -39,7 +39,7 @@
 .dashboard-grid-three {
   width: 100%;
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 }
 
@@ -56,4 +56,8 @@
 input:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.square {
+  aspect-ratio: 1 / 1;
 }
