@@ -105,21 +105,32 @@
     background-size: 30%;
     color: white;
     margin: 24px;
-    padding: 12px;
+    padding: 36px! important;
     margin: auto;
     display: grid;
     // grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 16px;
-    padding: 3rem 0;
-    align-content: center;
+    grid-gap: 24px;
+    // padding: 3rem 0;
+    align-content: left;
+    text-align: left! important;
   }
 
   .containerhome img {
-    max-width: 80%;
+    // max-width: 60%;
     // max-height: 80%;
     border-radius: 25px;
-    margin: 0 auto;
+    // margin: 0 auto;
   }
+
+  .container-img-home {
+    height: 300px;
+  }
+
+  .img-home {
+    height: inherit;
+    object-fit: cover;
+  }
+
 
   // .rowhome {
   //   align-content: center;

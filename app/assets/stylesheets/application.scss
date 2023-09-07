@@ -39,7 +39,7 @@
 .dashboard-grid-three {
   width: 100%;
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
 }
 
@@ -51,4 +51,8 @@
   font-size: 2em;
   font-family: "Roboto", sans-serif;
   color: #333;
+}
+
+.square {
+  aspect-ratio: 1 / 1;
 }
