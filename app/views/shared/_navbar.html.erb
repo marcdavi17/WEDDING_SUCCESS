@@ -12,8 +12,7 @@
         <% end %>
       </li>
       <li class="p-1">
-        <%= link_to  wedding_families_path(@wedding), class: "nav-link #{"active" if controller_name == "families" && action_name == "index"}" do %>
-
+        <%= link_to wedding_families_path(@wedding), data: {turbo: false}, class: "nav-link #{"active" if controller_name == "families" && action_name == "index"}" do %>
           <div class="d-flex align-items-center justify-content-center">
             <i class="fa-solid fa-users me-3"></i>
             <p>Guests</p>
