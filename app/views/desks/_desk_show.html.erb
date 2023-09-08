@@ -56,7 +56,18 @@
         <% desk.guests.sort_by(&:last_name).each do |guest| %>
           <li>
             <%= image_tag "#{guest.gender.downcase}.png" %>
-            <p><strong><%= guest.first_name %></strong> <%= guest.last_name %> (<%= guest.family.name %>'s group) - invited by <%= guest.spouse.first_name %></p>
+            <p><strong><%= guest.first_name %></strong> <%= guest.last_name %>
+
+              <% if guest.fullname == guest.spouse.fullname %>
+                <%= guest.gender == "man" ? "🤵" : "👰" %>
+              <% elsif guest.witness %>
+                - <%= guest.gender == "man" ? "🙋‍♂️" : "🙋‍♀️" %> <%= guest.spouse.first_name %>'s witness
+              <% else %>
+                (<%= guest.family.name %>'s group) - invited by <%= guest.spouse.first_name %>
+              <% end %>
+
+
+            </p>
           </li>
         <% end %>
       </ul>
