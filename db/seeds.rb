@@ -81,9 +81,13 @@ family12 = Family.new({name: "Copains du Wagon", email: "tim@gmail.com"})
 family12.save!
 family13 = Family.new({name: "Dubois", email: "lepetit@gmail.com"})
 family13.save!
+family14 = Family.create({name: "Epoux", email: "lepetit@gmail.com"})
 puts "Families created!"
 
 puts "Creating guests..."
+guest_spouse_1 = Guest.create(first_name: spouse1.first_name, last_name: spouse1.last_name, gender: spouse1.gender, age_category: 30, witness: false, family: family14, spouse: spouse1 )
+guest_spouse_2 = Guest.create(first_name: spouse2.first_name, last_name: spouse2.last_name, gender: spouse2.gender, age_category: 30, witness: false, family: family14, spouse: spouse2 )
+
 guest1 = Guest.new({first_name: "Marc", last_name: "MARTIN", gender: "man", age_category: 30, witness: false, status: 1, family: family1, spouse: spouse1})
 guest1.save!
 guest2 = Guest.new({first_name: "Monique", last_name: "MARTIN", gender: "woman", age_category: 50, witness: false, status: 2, family: family1, spouse: spouse1})
@@ -184,9 +188,9 @@ guest47 = Guest.new({first_name: "Eric", last_name: "DUBOIS", gender: "man", age
 guest47.save!
 guest48 = Guest.new({first_name: "Chloé", last_name: "LELOUCHE", gender: "woman", age_category: 40, witness: false, status: 1, family: family6, spouse: spouse2})
 guest48.save!
-guest49 = Guest.new({first_name: "Antoine", last_name: "MOREAU", gender: "man", age_category: 30, witness: false, status: 1, family: family9, spouse: spouse2})
+guest49 = Guest.new({first_name: "Antoine", last_name: "MOREAU", gender: "man", age_category: 30, witness: true, status: 1, family: family9, spouse: spouse1})
 guest49.save!
-guest50 = Guest.new({first_name: "Laetitia", last_name: "GARCIA", gender: "woman", age_category: 30, witness: false, status: 1, family: family10, spouse: spouse2})
+guest50 = Guest.new({first_name: "Laetitia", last_name: "GARCIA", gender: "woman", age_category: 30, witness: true, status: 1, family: family10, spouse: spouse2})
 guest50.save!
 
 puts "Guests created!"
@@ -242,10 +246,7 @@ guestdesk23 = GuestDesk.new({guest: guest23, desk: desk4})
 guestdesk23.save!
 guestdesk24 = GuestDesk.new({guest: guest24, desk: desk4})
 guestdesk24.save!
-guestdesk25 = GuestDesk.new({guest: guest25, desk: desk4})
-guestdesk25.save!
-guestdesk26 = GuestDesk.new({guest: guest26, desk: desk4})
-guestdesk26.save!
+
 guestdesk27 = GuestDesk.new({guest: guest27, desk: desk4})
 guestdesk27.save!
 guestdesk28 = GuestDesk.new({guest: guest28, desk: desk4})
@@ -271,20 +272,20 @@ guestdesk37 = GuestDesk.new({guest: guest37, desk: desk5})
 guestdesk37.save!
 guestdesk38 = GuestDesk.new({guest: guest38, desk: desk5})
 guestdesk38.save!
-guestdesk39 = GuestDesk.new({guest: guest39, desk: desk6})
+guestdesk39 = GuestDesk.new({guest: guest39, desk: desk4})
 guestdesk39.save!
 # guestdesk40 = GuestDesk.new({guest: guest40, desk: desk6})
 # guestdesk40.save!
 
-guestdesk41 = GuestDesk.new({guest: guest41, desk: desk6})
+guestdesk41 = GuestDesk.new({guest: guest41, desk: desk4})
 guestdesk41.save!
-guestdesk42 = GuestDesk.new({guest: guest42, desk: desk6})
+guestdesk42 = GuestDesk.new({guest: guest42, desk: desk4})
 guestdesk42.save!
 guestdesk43 = GuestDesk.new({guest: guest43, desk: desk6})
 guestdesk43.save!
-guestdesk44 = GuestDesk.new({guest: guest44, desk: desk6})
+guestdesk44 = GuestDesk.new({guest: guest44, desk: desk1})
 guestdesk44.save!
-guestdesk45 = GuestDesk.new({guest: guest45, desk: desk6})
+guestdesk45 = GuestDesk.new({guest: guest45, desk: desk1})
 guestdesk45.save!
 guestdesk46 = GuestDesk.new({guest: guest46, desk: desk6})
 guestdesk46.save!
@@ -294,6 +295,8 @@ guestdesk48 = GuestDesk.new({guest: guest48, desk: desk6})
 guestdesk48.save!
 guestdesk49 = GuestDesk.new({guest: guest49, desk: desk6})
 guestdesk49.save!
+GuestDesk.create(guest: guest_spouse_1, desk: desk6)
+GuestDesk.create(guest: guest_spouse_2, desk: desk6)
 # guestdesk50 = GuestDesk.new({guest: guest50, desk: desk6})
 # guestdesk50.save!
 

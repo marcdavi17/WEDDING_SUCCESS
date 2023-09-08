@@ -3,7 +3,9 @@ class FamiliesController < ApplicationController
   def index
     @family = Family.new # Needed to instantiate the form_with
     @wedding = Wedding.find(params[:wedding_id])
-    @families = @wedding.families.uniq
+    all_families = @wedding.families.uniq
+    all_families.delete_at(all_families.index(Family.find_by(name: "Epoux")))
+    @families = all_families
     @guests = @wedding.guests
   end
 

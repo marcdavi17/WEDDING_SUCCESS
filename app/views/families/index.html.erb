@@ -93,11 +93,14 @@
             <%= render "add_guest", family: family, wedding: @wedding %>
           </div>
 
-          <ul class="hide-last-element">
+          <ul class="">
             <% family.guests.each do |guest| %>
               <% if guest.persisted? %>
                 <li>
                   <%= guest.first_name %> <%= guest.last_name %>
+                  <% if guest.witness %>
+                    - <%= guest.gender == "man" ? "🙋‍♂️" : "🙋‍♀️" %> <%= guest.spouse.first_name %>'s witness
+                  <% end %>
                   <%= link_to raw('<i class="fa-regular fa-circle-xmark guestcroix"></i>'), wedding_guest_path(@wedding, guest), data: { turbo_method: :delete } %>
                 </li>
               <% end %>
